@@ -122,27 +122,27 @@
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
 
-  <section data-video="https://www.youtube.com/embed/oJ6y8NKYuBo">
+  <section data-video="https://www.youtube.com/embed/1ZYbU82GVz4">
     <h2>1. Respiración profunda</h2>
     <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente.</p>
   </section>
 
-  <section data-video="https://www.youtube.com/embed/k1o9pRQRzjY">
+  <section data-video="https://www.youtube.com/embed/inpok4MKVLM">
     <h2>2. Meditación guiada</h2>
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
-  <section data-video="https://www.youtube.com/embed/hBXS9ylrdQE">
+  <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE">
     <h2>3. Yoga prenatal</h2>
     <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
   </section>
 
-  <section data-video="https://www.youtube.com/embed/dIEh8LtBumw">
+  <section data-video="https://www.youtube.com/embed/3EvoT1D_YkI">
     <h2>4. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo.</p>
   </section>
 
-  <section data-video="https://www.youtube.com/embed/XLJpHdW2LrY">
+  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04">
     <h2>5. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
@@ -207,6 +207,7 @@
 
 </body>
 </html>
+
 
 
 
