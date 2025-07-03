@@ -135,6 +135,85 @@
     section.no-modal {
       cursor: default;
     }
+    #foro {
+  background: #fff0f6;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(214, 102, 140, 0.3);
+  margin-bottom: 60px;
+}
+#foro form, .question, .answer-form {
+  background: #ffe6f0;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(214, 102, 140, 0.2);
+  margin-bottom: 20px;
+}
+#foro input[type="text"], #foro textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #d6336c;
+  font-size: 14px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: inherit;
+}
+#foro button {
+  background-color: #d6336c;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  margin-top: 10px;
+}
+#foro button:hover {
+  background-color: #b32456;
+}
+.question-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #a02a55;
+}
+.question-text {
+  font-size: 15px;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+}
+.answers {
+  margin-top: 12px;
+  padding-left: 12px;
+  border-left: 3px solid #d6336c;
+}
+.answer {
+  background: #f9d1e1;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4a2c3a;
+  white-space: pre-wrap;
+}
+.toggle-answers-btn {
+  background: transparent;
+  border: none;
+  color: #b32456;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 6px;
+  user-select: none;
+  font-size: 14px;
+}
+.toggle-answers-btn:hover {
+  text-decoration: underline;
+}
+
     /* Animations */
     @keyframes fadeInDown {
       from {
@@ -453,6 +532,22 @@
 
     <h3>Respiración controlada</h3>
     <p>Las técnicas de respiración controlada, que incluyen inspiraciones y exhalaciones pausadas, ayudan a mantener un ritmo constante durante las contracciones, evitando el agotamiento. Respirar adecuadamente incrementa el oxígeno disponible para la madre y el bebé, facilitando el proceso de parto y promoviendo la relajación.</p>
+  <section id="foro" style="margin-top: 40px;">
+  <h2>Foro de Preguntas y Respuestas</h2>
+
+  <form id="question-form">
+    <label for="question-title-input">Título de la pregunta</label>
+    <input type="text" id="question-title-input" placeholder="Escribe el título de tu pregunta" required maxlength="100" />
+
+    <label for="question-text-input" style="margin-top: 12px;">Detalle / descripción</label>
+    <textarea id="question-text-input" placeholder="Describe tu pregunta con más detalle" required maxlength="500"></textarea>
+
+    <button type="submit">Publicar Pregunta</button>
+  </form>
+
+  <div id="questions-container">
+    <!-- Preguntas se mostrarán aquí -->
+  </div>
 
   </section>
 
@@ -556,6 +651,123 @@
 
     startBtn.addEventListener("click", startBreathing);
     stopBtn.addEventListener("click", stopBreathing);
+    let foroData = JSON.parse(localStorage.getItem('foroPreguntas')) || [];
+const questionForm = document.getElementById('question-form');
+const questionsContainer = document.getElementById('questions-container');
+
+function guardarDatos() {
+  localStorage.setItem('foroPreguntas', JSON.stringify(foroData));
+}
+function crearPreguntaElement(pregunta) {
+  const container = document.createElement('div');
+  container.classList.add('question');
+  const title = document.createElement('div');
+  title.classList.add('question-title');
+  title.textContent = pregunta.title;
+  container.appendChild(title);
+
+  const text = document.createElement('div');
+  text.classList.add('question-text');
+  text.textContent = pregunta.text;
+  container.appendChild(text);
+
+  const toggleBtn = document.createElement('button');
+  toggleBtn.classList.add('toggle-answers-btn');
+  toggleBtn.textContent = `Mostrar respuestas (${pregunta.answers.length})`;
+  container.appendChild(toggleBtn);
+
+  const answersDiv = document.createElement('div');
+  answersDiv.classList.add('answers');
+  answersDiv.style.display = 'none';
+
+  pregunta.answers.forEach((respuesta) => {
+    const ans = document.createElement('div');
+    ans.classList.add('answer');
+    ans.textContent = respuesta;
+    answersDiv.appendChild(ans);
+  });
+  container.appendChild(answersDiv);
+
+  const answerForm = document.createElement('form');
+  answerForm.classList.add('answer-form');
+  answerForm.style.display = 'none';
+
+  const answerTextarea = document.createElement('textarea');
+  answerTextarea.setAttribute('placeholder', 'Escribe tu respuesta aquí');
+  answerTextarea.required = true;
+  answerTextarea.maxLength = 300;
+  answerForm.appendChild(answerTextarea);
+
+  const answerSubmitBtn = document.createElement('button');
+  answerSubmitBtn.type = 'submit';
+  answerSubmitBtn.textContent = 'Responder';
+  answerForm.appendChild(answerSubmitBtn);
+
+  container.appendChild(answerForm);
+
+  toggleBtn.addEventListener('click', () => {
+    if (answersDiv.style.display === 'none') {
+      answersDiv.style.display = 'block';
+      answerForm.style.display = 'block';
+      toggleBtn.textContent = `Ocultar respuestas (${pregunta.answers.length})`;
+    } else {
+      answersDiv.style.display = 'none';
+      answerForm.style.display = 'none';
+      toggleBtn.textContent = `Mostrar respuestas (${pregunta.answers.length})`;
+    }
+  });
+
+  answerForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const nuevaRespuesta = answerTextarea.value.trim();
+    if (!nuevaRespuesta) return;
+    const index = foroData.findIndex(q => q.id === pregunta.id);
+    if (index >= 0) {
+      foroData[index].answers.push(nuevaRespuesta);
+      guardarDatos();
+      const ans = document.createElement('div');
+      ans.classList.add('answer');
+      ans.textContent = nuevaRespuesta;
+      answersDiv.appendChild(ans);
+      answerTextarea.value = '';
+      toggleBtn.textContent = `Ocultar respuestas (${foroData[index].answers.length})`;
+    }
+  });
+
+  return container;
+}
+
+function renderizarPreguntas() {
+  questionsContainer.innerHTML = '';
+  if (foroData.length === 0) {
+    questionsContainer.textContent = 'No hay preguntas todavía. Sé el primero en publicar una.';
+    return;
+  }
+  foroData.forEach(pregunta => {
+    const preguntaElem = crearPreguntaElement(pregunta);
+    questionsContainer.appendChild(preguntaElem);
+  });
+}
+
+questionForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const titulo = document.getElementById('question-title-input').value.trim();
+  const texto = document.getElementById('question-text-input').value.trim();
+  if (!titulo || !texto) return;
+  const nuevaPregunta = {
+    id: Date.now(),
+    title: titulo,
+    text: texto,
+    answers: []
+  };
+  foroData.unshift(nuevaPregunta);
+  guardarDatos();
+  renderizarPreguntas();
+  questionForm.reset();
+});
+
+renderizarPreguntas();
+
 
     // Chatbot funcionalidad
     const chatbotToggle = document.getElementById("chatbot-toggle");
