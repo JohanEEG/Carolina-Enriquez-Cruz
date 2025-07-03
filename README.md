@@ -167,48 +167,6 @@
       }
     }
 
-    /* Música ambiental */
-    #music-player {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #d6336c;
-      border-radius: 12px;
-      padding: 10px 15px;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 4px 15px rgba(214, 51, 108, 0.6);
-      z-index: 1100;
-      font-family: inherit;
-    }
-    #music-player button {
-      background: white;
-      color: #d6336c;
-      border-radius: 50%;
-      border: none;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 18px;
-      padding: 0;
-      line-height: 1;
-      transition: background-color 0.3s ease;
-    }
-    #music-player button:hover {
-      background-color: #f4f4f4;
-    }
-    #music-player label {
-      font-size: 14px;
-      user-select: none;
-    }
-    #music-player input[type="range"] {
-      width: 100px;
-      cursor: pointer;
-    }
-
     /* Temporizador respiración */
     #breath-timer {
       background: #d6336c;
