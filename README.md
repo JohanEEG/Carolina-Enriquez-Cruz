@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Métodos de Relajación en el Embarazo</title>
+  <title>Métodos de Relajación en el Embarazo y Parto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
@@ -196,7 +196,7 @@
       margin-top: 12px;
       height: 24px;
     }
-    #breath-start-btn {
+    #breath-start-btn, #breath-stop-btn {
       background-color: white;
       color: #d6336c;
       font-weight: bold;
@@ -207,8 +207,10 @@
       border: none;
       transition: background-color 0.3s ease;
       font-size: 16px;
+      user-select: none;
+      margin-right: 10px;
     }
-    #breath-start-btn:hover {
+    #breath-start-btn:hover, #breath-stop-btn:hover {
       background-color: #f9d1e1;
     }
     @keyframes breath-pulse {
@@ -315,6 +317,73 @@
     #chatbot-toggle:hover {
       background-color: #b32456;
     }
+
+    /* NUEVA SECCIÓN: métodos de relajación parto */
+    #relax-parto {
+      background: #ffe6f0;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 0 12px rgba(214, 102, 140, 0.3);
+      margin: 25px auto 40px auto;
+      max-width: 900px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #5a2a3a;
+      animation: fadeInUp 1s ease forwards;
+    }
+    #relax-parto h2 {
+      color: #c8336e;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+    }
+    #relax-parto h3 {
+      color: #a42d5d;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    #relax-parto p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    #relax-parto img.method-img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 12px;
+      margin: 10px 0 20px 0;
+      box-shadow: 0 4px 14px rgba(214, 51, 108, 0.3);
+      display: block;
+    }
+    #relax-parto .method-block {
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+    }
+    #relax-parto .method-text {
+      flex: 1 1 55%;
+    }
+    #relax-parto .method-img-container {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+    /* Responsive */
+    @media (max-width: 650px) {
+      #relax-parto .method-block {
+        flex-direction: column;
+      }
+      #relax-parto .method-img-container,
+      #relax-parto .method-text {
+        flex: 1 1 100%;
+      }
+      #relax-parto img.method-img {
+        max-width: 100%;
+        margin: 12px auto 24px auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -326,7 +395,7 @@
   </header>
 
   <!-- Respiración Profunda texto e imagen -->
-  <section class="no-modal" style="cursor: default;">
+  <section class="no-modal" style="cursor: default; opacity: 1; animation-delay: 0s;">
     <h2>1. Respiración profunda</h2>
     <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente. Prueba esta técnica:</p>
     <ul>
@@ -340,19 +409,19 @@
   </section>
 
   <!-- Meditación guiada video modal -->
-  <section data-video="https://www.youtube.com/embed/inpok4MKVLM">
+  <section data-video="https://www.youtube.com/embed/inpok4MKVLM" style="opacity: 1; animation-delay: 0.3s;">
     <h2>2. Meditación guiada</h2>
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
   <!-- Yoga prenatal video modal -->
-  <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE">
+  <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE" style="opacity: 1; animation-delay: 0.6s;">
     <h2>3. Yoga prenatal</h2>
     <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
   </section>
 
   <!-- Masajes texto e imagen -->
-  <section class="no-modal" style="cursor: default;">
+  <section class="no-modal" style="cursor: default; opacity: 1; animation-delay: 0.9s;">
     <h2>4. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
     <ul>
@@ -366,19 +435,20 @@
   </section>
 
   <!-- Música relajante video modal -->
-  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04">
+  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04" style="opacity: 1; animation-delay: 1.2s;">
     <h2>5. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
 
   <!-- Temporizador respiración guiada -->
-  <div id="breath-timer">
+  <div id="breath-timer" style="opacity: 1; animation-delay: 1.5s;">
     <div id="breath-instruction">Pulsa "Iniciar" para comenzar</div>
     <div id="breath-circle"></div>
     <button id="breath-start-btn">Iniciar</button>
+    <button id="breath-stop-btn" disabled>Detener</button>
   </div>
 
-  <div id="qr">
+  <div id="qr" style="opacity: 1; animation-delay: 1.8s;">
     <h2>Comparte esta información</h2>
     <button onclick="generarQR()">Generar Código QR</button>
     <div id="codigoQR"></div>
@@ -401,115 +471,189 @@
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-container">
       <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta..." autocomplete="off" />
-      <button id="chatbot-send-btn">&#9658;</button>
+      <button id="chatbot-send-btn" title="Enviar">▶</button>
     </div>
   </div>
-  <div id="chatbot-toggle" title="Abrir asistente">&#128172;</div>
 
-  <!-- Librería QRCode.js -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <div id="chatbot-toggle" title="Abrir chat">💬</div>
+
+  <!-- NUEVA SECCIÓN: Métodos de relajación durante el parto -->
+  <section id="relax-parto" style="opacity: 1; animation-delay: 2.1s;">
+    <h2>Métodos de Relajación Durante el Parto</h2>
+    
+    <div class="method-block">
+      <div class="method-text">
+        <h3>1. Respiración controlada</h3>
+        <p>Respirar lenta y profundamente ayuda a oxigenar mejor tu cuerpo y a mantener la calma. Se recomienda usar técnicas como la respiración abdominal o respiración rítmica, inspirando por la nariz y exhalando por la boca de forma pausada.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/5QrDsY1.png" alt="Mujer realizando respiración controlada" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>2. Visualización y enfoque mental</h3>
+        <p>Imagina un lugar tranquilo y seguro o visualiza cómo cada contracción acerca a tu bebé a tus brazos. Este enfoque mental positivo puede disminuir la sensación de dolor y mejorar tu bienestar emocional.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/jPztpYu.png" alt="Mujer en meditación visualización" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>3. Masajes y presión</h3>
+        <p>El masaje suave en la zona lumbar o presión firme en puntos específicos puede aliviar tensiones y el dolor durante las contracciones. Tu acompañante o personal de salud puede ayudarte con estas técnicas.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/GIURnsW.png" alt="Masaje lumbar para aliviar dolor" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>4. Movimiento y postura</h3>
+        <p>Adoptar posiciones cómodas, como caminar, balancearte en una pelota de parto, o cambiar de postura regularmente puede facilitar el avance del trabajo de parto y disminuir molestias.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/VDZvTfH.png" alt="Mujer embarazada usando pelota de parto" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>5. Técnicas de relajación muscular progresiva</h3>
+        <p>Consiste en tensar y luego relajar grupos musculares específicos para liberar la tensión corporal. Esta técnica ayuda a disminuir la rigidez y promover una sensación general de calma.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/ky9dP7I.png" alt="Ejemplo relajación muscular progresiva" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>6. Uso de música y ambiente calmado</h3>
+        <p>Escuchar música suave o sonidos de la naturaleza crea un ambiente relajante que puede ayudar a reducir el estrés y el dolor.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/Z1TxZWb.png" alt="Ambiente relajante con música" />
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div class="method-text">
+        <h3>7. Apoyo emocional y presencia de un acompañante</h3>
+        <p>Sentirse acompañada y apoyada durante el parto es clave para mantener la tranquilidad. La presencia de una persona de confianza brinda seguridad y ayuda a manejar el proceso con mayor confianza.</p>
+      </div>
+      <div class="method-img-container">
+        <img class="method-img" src="https://i.imgur.com/7FyV3qn.png" alt="Apoyo emocional durante el parto" />
+      </div>
+    </div>
+    
+    <p style="text-align:center; font-style: italic; margin-top: 30px;">
+      Recuerda que cada mujer es única. Consulta siempre con tu médico o partera para adaptar estas técnicas a tus necesidades y condiciones personales.
+    </p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
-    // Modal para videos
+    // Modal video
     const modal = document.getElementById("modal");
     const videoFrame = document.getElementById("videoFrame");
     const closeBtn = document.getElementById("closeBtn");
-
-    document.querySelectorAll("section[data-video]").forEach(section => {
-      section.style.cursor = "pointer";
+    const sections = document.querySelectorAll("section[data-video]");
+    sections.forEach(section => {
       section.addEventListener("click", () => {
-        const videoURL = section.getAttribute("data-video");
-        videoFrame.src = videoURL + "?autoplay=1&rel=0";
+        const videoUrl = section.getAttribute("data-video");
+        videoFrame.src = videoUrl + "?autoplay=1";
         modal.style.display = "block";
       });
     });
-
-    closeBtn.onclick = () => {
-      modal.style.display = "none";
+    closeBtn.addEventListener("click", () => {
       videoFrame.src = "";
-    };
-
-    window.onclick = (event) => {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      modal.style.display = "none";
+    });
+    window.addEventListener("click", e => {
+      if (e.target == modal) {
         videoFrame.src = "";
-      }
-    };
-
-    // Generar código QR
-    function generarQR() {
-      const contenedorQR = document.getElementById("codigoQR");
-      contenedorQR.innerHTML = ""; // Limpiar contenido anterior
-      new QRCode(contenedorQR, {
-        text: window.location.href,
-        width: 150,
-        height: 150,
-        colorDark: "#d6336c",
-        colorLight: "#fff0f6",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-
-    // Temporizador respiración guiada con botón iniciar y detener
-    const breathInstruction = document.getElementById("breath-instruction");
-    const breathCircle = document.getElementById("breath-circle");
-    const breathStartBtn = document.getElementById("breath-start-btn");
-
-    let breathInterval;
-    let phase = 0; // 0=inhalar,1=retener,2=exhalar
-    let cycleCount = 0;
-    const maxCycles = 6;
-
-    function startBreathing() {
-      breathStartBtn.textContent = "Detener";
-      breathStartBtn.disabled = false;
-      cycleCount = 0;
-      phase = 0;
-      breathInstruction.textContent = "Inhala profundo...";
-      breathCircle.style.transform = "scale(1)";
-      breathCircle.style.transition = "transform 4s ease";
-
-      breathInterval = setInterval(() => {
-        switch (phase) {
-          case 0:
-            breathInstruction.textContent = "Inhala profundo...";
-            breathCircle.style.transform = "scale(1.3)";
-            phase = 1;
-            break;
-          case 1:
-            breathInstruction.textContent = "Retén la respiración...";
-            breathCircle.style.transform = "scale(1)";
-            phase = 2;
-            break;
-          case 2:
-            breathInstruction.textContent = "Exhala lentamente...";
-            breathCircle.style.transform = "scale(0.7)";
-            phase = 0;
-            cycleCount++;
-            if (cycleCount >= maxCycles) {
-              stopBreathing();
-            }
-            break;
-        }
-      }, 4000);
-    }
-
-    function stopBreathing() {
-      clearInterval(breathInterval);
-      breathInstruction.textContent = "Pulsa \"Iniciar\" para comenzar";
-      breathCircle.style.transform = "scale(1)";
-      breathStartBtn.textContent = "Iniciar";
-      breathStartBtn.disabled = false;
-    }
-
-    breathStartBtn.addEventListener("click", () => {
-      if (breathStartBtn.textContent === "Iniciar") {
-        startBreathing();
-      } else {
-        stopBreathing();
+        modal.style.display = "none";
       }
     });
 
-    // Chatbot básico con más frases reconocidas
+    // QR code generation
+    function generarQR() {
+      const url = window.location.href;
+      const qrContainer = document.getElementById("codigoQR");
+      qrContainer.innerHTML = "";
+      QRCode.toCanvas(url, { width: 160 }, (error, canvas) => {
+        if (error) {
+          alert("Error generando código QR");
+          return;
+        }
+        qrContainer.appendChild(canvas);
+      });
+    }
+
+    // Temporizador respiración guiada
+    const breathInstruction = document.getElementById("breath-instruction");
+    const breathCircle = document.getElementById("breath-circle");
+    const breathStartBtn = document.getElementById("breath-start-btn");
+    const breathStopBtn = document.getElementById("breath-stop-btn");
+
+    let breathInterval = null;
+    let breathStep = 0;
+    const breathSteps = [
+      { text: "Inhala lentamente", duration: 4000 },
+      { text: "Mantén el aire", duration: 4000 },
+      { text: "Exhala lentamente", duration: 6000 },
+      { text: "Mantén los pulmones vacíos", duration: 4000 }
+    ];
+
+    function animateBreath(step) {
+      if (step === 0) {
+        breathCircle.style.transform = "scale(1.3)";
+        breathCircle.style.boxShadow = "0 0 24px rgba(214, 51, 108, 1)";
+      } else if (step === 2) {
+        breathCircle.style.transform = "scale(1)";
+        breathCircle.style.boxShadow = "0 0 12px rgba(214, 51, 108, 0.8)";
+      }
+    }
+
+    function startBreathTimer() {
+      if (breathInterval) return; // Ya está corriendo
+
+      breathStep = 0;
+      breathInstruction.textContent = breathSteps[breathStep].text;
+      animateBreath(breathStep);
+      breathInterval = setInterval(() => {
+        breathStep = (breathStep + 1) % breathSteps.length;
+        breathInstruction.textContent = breathSteps[breathStep].text;
+        animateBreath(breathStep);
+      }, breathSteps[breathStep].duration);
+
+      breathStartBtn.disabled = true;
+      breathStopBtn.disabled = false;
+    }
+
+    function stopBreathTimer() {
+      clearInterval(breathInterval);
+      breathInterval = null;
+      breathInstruction.textContent = "Pulsa \"Iniciar\" para comenzar";
+      breathCircle.style.transform = "scale(1)";
+      breathCircle.style.boxShadow = "0 0 12px rgba(214, 51, 108, 0.8)";
+      breathStartBtn.disabled = false;
+      breathStopBtn.disabled = true;
+    }
+
+    breathStartBtn.addEventListener("click", () => {
+      startBreathTimer();
+    });
+    breathStopBtn.addEventListener("click", () => {
+      stopBreathTimer();
+    });
+
+    // Chatbot funcionalidad
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbot = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -522,57 +666,54 @@
       chatbotToggle.style.display = "none";
       chatbotInput.focus();
     });
-
     chatbotClose.addEventListener("click", () => {
       chatbot.style.display = "none";
       chatbotToggle.style.display = "block";
     });
 
-    function addChatMessage(text, sender) {
-      const msg = document.createElement("div");
-      msg.classList.add("chatbot-message", sender);
-      msg.textContent = text;
-      chatbotMessages.appendChild(msg);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-    }
+    // Respuestas básicas
+    const respuestas = {
+      "hola": "¡Hola! ¿En qué puedo ayudarte con la relajación durante el embarazo o parto?",
+      "respiración": "La respiración profunda y controlada es clave para relajarte. Puedes probar la técnica de inhalar contando hasta 4, mantener, y exhalar lentamente.",
+      "masaje": "Los masajes suaves en la espalda baja y hombros ayudan a aliviar tensiones. Recuerda siempre ser cuidadosa y consultar con un especialista.",
+      "yoga": "El yoga prenatal mejora la postura y reduce molestias. Existen muchas rutinas suaves y específicas para embarazadas.",
+      "parto": "Durante el parto, técnicas como la respiración controlada, visualización y movimiento pueden ayudarte a manejar el dolor y mantener la calma.",
+      "gracias": "¡De nada! Estoy aquí para ayudarte cuando quieras.",
+      "adiós": "¡Hasta luego! Te deseo mucha calma y bienestar."
+    };
 
-    function responder(input) {
-      const text = input.toLowerCase().trim();
-      if (!text) return "Por favor, escribe algo para que pueda ayudarte.";
-
-      const respuestas = [
-        { keys: ["hola", "buenas", "buen día", "buenas tardes", "buenas noches"], resp: "¡Hola! ¿En qué puedo ayudarte hoy?" },
-        { keys: ["respiración", "respira", "respirar"], resp: "Puedes probar la respiración profunda: inhala contando hasta 4, retén 4 segundos y exhala contando hasta 6." },
-        { keys: ["masaje", "masajes"], resp: "Los masajes suaves en espalda y piernas ayudan mucho a relajarte durante el embarazo." },
-        { keys: ["meditación", "meditar"], resp: "La meditación guiada es ideal para calmar la mente y conectarte con tu bebé." },
-        { keys: ["yoga", "prenatal"], resp: "El yoga prenatal fortalece tu cuerpo y reduce molestias físicas." },
-        { keys: ["música", "relajante"], resp: "Escuchar música suave puede crear un ambiente tranquilo para ti y tu bebé." },
-        { keys: ["gracias", "muchas gracias", "gracias!"], resp: "¡De nada! Estoy aquí para ayudarte cuando lo necesites." },
-        { keys: ["adiós", "hasta luego", "nos vemos"], resp: "¡Cuídate mucho! Estoy aquí si necesitas más consejos." }
-      ];
-
-      for (const item of respuestas) {
-        if (item.keys.some(k => text.includes(k))) {
-          return item.resp;
+    function responderUsuario(input) {
+      const texto = input.toLowerCase().trim();
+      // Buscar palabra clave en respuestas
+      for (const clave in respuestas) {
+        if (texto.includes(clave)) {
+          return respuestas[clave];
         }
       }
+      return "Lo siento, no entendí eso. Puedes preguntarme sobre respiración, masaje, yoga o parto.";
+    }
 
-      return "Lo siento, no entiendo eso. Puedes preguntarme sobre respiración, masajes, meditación, yoga o música relajante.";
+    function agregarMensaje(text, tipo) {
+      const div = document.createElement("div");
+      div.classList.add("chatbot-message", tipo);
+      div.textContent = text;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
     function enviarMensaje() {
       const textoUsuario = chatbotInput.value.trim();
       if (!textoUsuario) return;
-      addChatMessage(textoUsuario, "user");
+      agregarMensaje(textoUsuario, "user");
       chatbotInput.value = "";
-      const respuestaBot = responder(textoUsuario);
       setTimeout(() => {
-        addChatMessage(respuestaBot, "bot");
+        const respuestaBot = responderUsuario(textoUsuario);
+        agregarMensaje(respuestaBot, "bot");
       }, 600);
     }
 
     chatbotSendBtn.addEventListener("click", enviarMensaje);
-    chatbotInput.addEventListener("keydown", e => {
+    chatbotInput.addEventListener("keypress", e => {
       if (e.key === "Enter") {
         enviarMensaje();
       }
@@ -580,6 +721,7 @@
   </script>
 </body>
 </html>
+
 
 
 
