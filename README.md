@@ -230,6 +230,7 @@
       border: 6px solid white;
       box-shadow: 0 0 12px rgba(214, 51, 108, 0.8);
       animation: breath-pulse 4s ease-in-out infinite;
+      transform-origin: center center;
     }
     #breath-instruction {
       font-weight: bold;
@@ -273,6 +274,7 @@
       user-select: none;
       z-index: 1200;
       overflow: hidden;
+      display: none; /* inicia oculto */
     }
     #chatbot-header {
       background: #d6336c;
@@ -366,7 +368,7 @@
   </header>
 
   <!-- Respiración Profunda texto e imagen -->
-  <section class="no-modal">
+  <section class="no-modal" style="cursor: default;">
     <h2>1. Respiración profunda</h2>
     <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente. Prueba esta técnica:</p>
     <ul>
@@ -392,7 +394,7 @@
   </section>
 
   <!-- Masajes texto e imagen -->
-  <section class="no-modal">
+  <section class="no-modal" style="cursor: default;">
     <h2>4. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
     <ul>
@@ -434,16 +436,16 @@
 
   <!-- Música ambiental -->
   <div id="music-player">
-    <button id="music-toggle" title="Reproducir/Pausar">&#9658;</button>
+    <button id="music-toggle" title="Reproducir música">&#9658;</button>
     <label for="volume-control">Volumen</label>
     <input type="range" id="volume-control" min="0" max="1" step="0.05" value="0.3" />
   </div>
 
   <!-- Chatbot -->
-  <div id="chatbot" style="display:none;">
+  <div id="chatbot">
     <div id="chatbot-header">
       Asistente de Relajación
-      <span id="chatbot-close" title="Cerrar" style="cursor:pointer;">&times;</span>
+      <span id="chatbot-close" title="Cerrar">&times;</span>
     </div>
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-container">
@@ -456,134 +458,126 @@
   <!-- Librería QRCode.js -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script>
-    // Generar QR
-    function generarQR() {
-      const qrDiv = document.getElementById("codigoQR");
-      qrDiv.innerHTML = "";
-      const url = window.location.href;
-      new QRCode(qrDiv, {
-        text: url,
-        width: 220,
-        height: 220,
-        colorDark: "#c8336e",
-        colorLight: "#fff0f6",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-
-    // Modal video
+    // Modal para videos
     const modal = document.getElementById("modal");
     const videoFrame = document.getElementById("videoFrame");
     const closeBtn = document.getElementById("closeBtn");
 
     document.querySelectorAll("section[data-video]").forEach(section => {
-      section.style.animationDelay = "0.5s"; // para que animen luego del header
+      section.style.cursor = "pointer";
       section.addEventListener("click", () => {
-        const videoUrl = section.getAttribute("data-video");
-        videoFrame.src = videoUrl + "?autoplay=1&rel=0";
+        const videoURL = section.getAttribute("data-video");
+        videoFrame.src = videoURL + "?autoplay=1&rel=0";
         modal.style.display = "block";
       });
     });
 
-    closeBtn.addEventListener("click", () => {
+    closeBtn.onclick = () => {
       modal.style.display = "none";
       videoFrame.src = "";
-    });
+    };
 
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
+    window.onclick = (event) => {
+      if (event.target == modal) {
         modal.style.display = "none";
         videoFrame.src = "";
       }
+    };
+
+    // Generar código QR
+    function generarQR() {
+      const contenedorQR = document.getElementById("codigoQR");
+      contenedorQR.innerHTML = ""; // Limpiar contenido anterior
+      new QRCode(contenedorQR, {
+        text: window.location.href,
+        width: 150,
+        height: 150,
+        colorDark: "#d6336c",
+        colorLight: "#fff0f6",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    // Temporizador respiración guiada
+    const breathInstruction = document.getElementById("breath-instruction");
+    const breathCircle = document.getElementById("breath-circle");
+    const breathStartBtn = document.getElementById("breath-start-btn");
+
+    let breathInterval;
+    let phase = 0; // 0=inhalar,1=retener,2=exhalar
+    let cycleCount = 0;
+    const maxCycles = 6;
+
+    function startBreathing() {
+      breathStartBtn.disabled = true;
+      cycleCount = 0;
+      phase = 0;
+      breathInstruction.textContent = "Inhala profundo...";
+      breathCircle.style.transform = "scale(1)";
+      breathCircle.style.transition = "transform 4s ease";
+
+      breathInterval = setInterval(() => {
+        switch (phase) {
+          case 0:
+            breathInstruction.textContent = "Inhala profundo...";
+            breathCircle.style.transform = "scale(1.3)";
+            phase = 1;
+            break;
+          case 1:
+            breathInstruction.textContent = "Retén la respiración...";
+            breathCircle.style.transform = "scale(1)";
+            phase = 2;
+            break;
+          case 2:
+            breathInstruction.textContent = "Exhala lentamente...";
+            breathCircle.style.transform = "scale(0.7)";
+            phase = 0;
+            cycleCount++;
+            if (cycleCount >= maxCycles) {
+              stopBreathing();
+            }
+            break;
+        }
+      }, 4000);
+    }
+
+    function stopBreathing() {
+      clearInterval(breathInterval);
+      breathInstruction.textContent = "¡Bien hecho! Puedes iniciar otra vez.";
+      breathCircle.style.transform = "scale(1)";
+      breathStartBtn.disabled = false;
+    }
+
+    breathStartBtn.addEventListener("click", () => {
+      startBreathing();
     });
 
     // Música ambiental
-    const audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-    audio.loop = true;
-    audio.volume = 0.3;
+    const musicPlayer = document.createElement("audio");
+    musicPlayer.src = "https://cdn.pixabay.com/download/audio/2022/03/23/audio_5d9c271da9.mp3?filename=soft-piano-10820.mp3";
+    musicPlayer.loop = true;
+    musicPlayer.volume = 0.3;
 
-    const musicToggleBtn = document.getElementById("music-toggle");
+    const musicToggle = document.getElementById("music-toggle");
     const volumeControl = document.getElementById("volume-control");
 
-    musicToggleBtn.addEventListener("click", () => {
-      if (audio.paused) {
-        audio.play();
-        musicToggleBtn.innerHTML = "&#10074;&#10074;"; // pausa icono
+    musicToggle.addEventListener("click", () => {
+      if (musicPlayer.paused) {
+        musicPlayer.play();
+        musicToggle.innerHTML = "&#10074;&#10074;"; // Pausa
+        musicToggle.title = "Pausar música";
       } else {
-        audio.pause();
-        musicToggleBtn.innerHTML = "&#9658;"; // play icono
+        musicPlayer.pause();
+        musicToggle.innerHTML = "&#9658;"; // Play
+        musicToggle.title = "Reproducir música";
       }
     });
 
     volumeControl.addEventListener("input", () => {
-      audio.volume = volumeControl.value;
+      musicPlayer.volume = volumeControl.value;
     });
 
-    // Temporizador de respiración guiada
-    const breathStartBtn = document.getElementById("breath-start-btn");
-    const breathInstruction = document.getElementById("breath-instruction");
-    const breathCircle = document.getElementById("breath-circle");
-
-    let breathInterval;
-    let phaseIndex = 0;
-    // fases: Inhalar (4s), Retener (4s), Exhalar (6s)
-    const phases = [
-      { text: "Inhala profundamente...", duration: 4000 },
-      { text: "Sostén el aire...", duration: 4000 },
-      { text: "Exhala lentamente...", duration: 6000 }
-    ];
-
-    function startBreathCycle() {
-      phaseIndex = 0;
-      breathStartBtn.disabled = true;
-      updateBreathPhase();
-      breathInterval = setInterval(() => {
-        phaseIndex++;
-        if (phaseIndex >= phases.length) {
-          phaseIndex = 0;
-        }
-        updateBreathPhase();
-      }, phases[phaseIndex].duration);
-    }
-
-    function updateBreathPhase() {
-      const phase = phases[phaseIndex];
-      breathInstruction.textContent = phase.text;
-      breathCircle.style.animationDuration = (phase.duration / 1000) + "s";
-
-      if (phaseIndex === 0) { // inhalar: crecer círculo
-        breathCircle.style.animationName = "breath-pulse";
-      } else if (phaseIndex === 1) { // retener: círculo estable
-        breathCircle.style.animationName = "none";
-        breathCircle.style.transform = "scale(1.3)";
-      } else if (phaseIndex === 2) { // exhalar: encoger círculo
-        breathCircle.style.animationName = "breath-exhale";
-      }
-    }
-
-    // Animación para exhalar (encoger)
-    const styleSheet = document.styleSheets[0];
-    styleSheet.insertRule(`@keyframes breath-exhale {
-      0% { transform: scale(1.3); box-shadow: 0 0 24px rgba(214, 51, 108, 1); }
-      100% { transform: scale(1); box-shadow: 0 0 12px rgba(214, 51, 108, 0.8); }
-    }`, styleSheet.cssRules.length);
-
-    breathStartBtn.addEventListener("click", () => {
-      if (breathInterval) {
-        clearInterval(breathInterval);
-        breathInterval = null;
-        breathStartBtn.textContent = "Iniciar";
-        breathInstruction.textContent = "Pulsa \"Iniciar\" para comenzar";
-        breathCircle.style.animationName = "none";
-        breathCircle.style.transform = "scale(1)";
-        breathStartBtn.disabled = false;
-      } else {
-        startBreathCycle();
-        breathStartBtn.textContent = "Detener";
-      }
-    });
-
-    // Chatbot
+    // Chatbot simple
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbot = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -595,75 +589,72 @@
       chatbot.style.display = "flex";
       chatbotToggle.style.display = "none";
       chatbotInput.focus();
-      addBotMessage("Hola, soy tu asistente de relajación. ¿En qué puedo ayudarte? Puedes preguntar sobre respiración, meditación, yoga, masajes, música o tiempos de respiración.");
     });
 
     chatbotClose.addEventListener("click", () => {
       chatbot.style.display = "none";
       chatbotToggle.style.display = "block";
-      chatbotMessages.innerHTML = "";
     });
 
-    function addUserMessage(msg) {
-      const div = document.createElement("div");
-      div.classList.add("chatbot-message", "user");
-      div.textContent = msg;
-      chatbotMessages.appendChild(div);
+    function addMessage(text, sender) {
+      const message = document.createElement("div");
+      message.classList.add("chatbot-message", sender);
+      message.textContent = text;
+      chatbotMessages.appendChild(message);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
-    function addBotMessage(msg) {
-      const div = document.createElement("div");
-      div.classList.add("chatbot-message", "bot");
-      div.textContent = msg;
-      chatbotMessages.appendChild(div);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    function botResponse(input) {
+      input = input.toLowerCase().trim();
+
+      if (!input) return "Por favor, escribe algo para que pueda ayudarte.";
+
+      const respuestas = [
+        { keywords: ["respiración", "respirar"], response: "La respiración profunda ayuda a calmar la mente. Intenta inhalar contando hasta 4, retener por 4 y exhalar por 6." },
+        { keywords: ["meditación", "meditar"], response: "La meditación guiada es excelente para reducir estrés y conectarte contigo misma." },
+        { keywords: ["yoga"], response: "El yoga prenatal es muy beneficioso para el cuerpo y la mente durante el embarazo." },
+        { keywords: ["masaje", "masajes"], response: "Los masajes suaves alivian tensiones musculares, siempre evitando el abdomen." },
+        { keywords: ["música", "relajante"], response: "Escuchar música suave puede crear un ambiente muy armonioso para ti y tu bebé." },
+        { keywords: ["hola", "hola!", "buenos días", "buenas tardes"], response: "¡Hola! ¿En qué puedo ayudarte sobre métodos de relajación durante el embarazo?" },
+        { keywords: ["gracias", "muchas gracias"], response: "¡De nada! Estoy aquí para ayudarte cuando quieras." },
+        { keywords: ["adiós", "hasta luego"], response: "¡Hasta luego! Cuida mucho de ti y tu bebé." }
+      ];
+
+      for (const item of respuestas) {
+        if (item.keywords.some(k => input.includes(k))) {
+          return item.response;
+        }
+      }
+      return "Lo siento, no entendí tu pregunta. ¿Puedes intentar con otras palabras?";
     }
 
-    function getBotResponse(input) {
-      input = input.toLowerCase();
-      if (input.includes("respiración") || input.includes("respirar")) {
-        return "Para la respiración profunda, inhala contando 4 segundos, retén el aire 4 segundos y exhala lentamente contando 6 segundos.";
-      }
-      if (input.includes("meditación")) {
-        return "La meditación guiada ayuda a calmar la mente. Puedes probar los videos que tenemos en la página para empezar.";
-      }
-      if (input.includes("yoga")) {
-        return "El yoga prenatal mejora la postura y reduce dolores. Recuerda hacer movimientos suaves y consultar con tu especialista.";
-      }
-      if (input.includes("masaje") || input.includes("masajes")) {
-        return "Los masajes relajantes se hacen con movimientos lentos y suaves, evitando presionar el abdomen directamente.";
-      }
-      if (input.includes("música")) {
-        return "Escuchar música relajante puede crear un ambiente armonioso. Usa el reproductor en la esquina inferior izquierda para controlar la música.";
-      }
-      if (input.includes("tiempo") || input.includes("duración")) {
-        return "La respiración profunda sigue un ciclo: inhalar 4 segundos, retener 4 segundos y exhalar 6 segundos.";
-      }
-      return "Lo siento, no entiendo tu pregunta. Por favor, intenta con otra o pregunta sobre relajación, respiración, yoga, masaje o música.";
-    }
-
-    function handleChat() {
-      const userInput = chatbotInput.value.trim();
-      if (!userInput) return;
-      addUserMessage(userInput);
+    function enviarMensaje() {
+      const texto = chatbotInput.value.trim();
+      if (!texto) return;
+      addMessage(texto, "user");
       chatbotInput.value = "";
       setTimeout(() => {
-        const response = getBotResponse(userInput);
-        addBotMessage(response);
-      }, 600);
+        const respuesta = botResponse(texto);
+        addMessage(respuesta, "bot");
+      }, 700);
     }
 
-    chatbotSendBtn.addEventListener("click", handleChat);
-    chatbotInput.addEventListener("keydown", e => {
-      if (e.key === "Enter") {
-        handleChat();
-      }
+    chatbotSendBtn.addEventListener("click", enviarMensaje);
+    chatbotInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") enviarMensaje();
     });
 
-  <script src="//code.tidio.co/a1hnsqx1yhyxz59fqs3hc7iqteibrc72.js" async></script>
+    // Animaciones fade in al cargar
+    window.onload = () => {
+      document.querySelectorAll("header, section, #qr").forEach((el, i) => {
+        el.style.animationDelay = `${i * 0.3}s`;
+        el.style.opacity = "1";
+      });
+    };
+  </script>
 </body>
 </html>
+
 
 
 
