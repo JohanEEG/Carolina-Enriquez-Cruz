@@ -661,7 +661,7 @@
       }
     });
 
-  </script src="//code.tidio.co/a1hnsqx1yhyxz59fqs3hc7iqteibrc72.js" async></script>
+  <script src="//code.tidio.co/a1hnsqx1yhyxz59fqs3hc7iqteibrc72.js" async></script>
 </body>
 </html>
 
