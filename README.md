@@ -93,11 +93,10 @@
       box-shadow: 0 0 25px rgba(200, 0, 100, 0.5);
       position: relative;
     }
-    .modal-content video {
+    .modal-content iframe {
       width: 100%;
       height: 450px;
       border-radius: 10px;
-      background: black;
     }
     .close-btn {
       color: #c8336e;
@@ -113,12 +112,14 @@
     .close-btn:hover {
       color: #a02456;
     }
-    /* Para las imágenes dentro de sección */
     .explanation-img {
       max-width: 100%;
       border-radius: 12px;
       margin-top: 12px;
       box-shadow: 0 2px 8px rgba(200, 0, 100, 0.2);
+    }
+    section.no-modal {
+      cursor: default;
     }
   </style>
 </head>
@@ -130,8 +131,8 @@
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
 
-  <!-- Respiración Profunda con texto e imagen, sin modal -->
-  <section id="respiracion">
+  <!-- Respiración Profunda texto e imagen -->
+  <section class="no-modal">
     <h2>1. Respiración profunda</h2>
     <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente. Prueba esta técnica:</p>
     <ul>
@@ -144,20 +145,20 @@
     <img class="explanation-img" src="https://cdn.pixabay.com/photo/2018/07/07/10/23/breathing-3521230_1280.png" alt="Ejemplo respiración profunda" />
   </section>
 
-  <!-- Meditación guiada con video modal -->
-  <section data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+  <!-- Meditación guiada video modal -->
+  <section data-video="https://www.youtube.com/embed/inpok4MKVLM">
     <h2>2. Meditación guiada</h2>
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
-  <!-- Yoga prenatal con video modal -->
-  <section data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+  <!-- Yoga prenatal video modal -->
+  <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE">
     <h2>3. Yoga prenatal</h2>
     <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
   </section>
 
-  <!-- Masajes con texto e imagen, sin modal -->
-  <section id="masajes">
+  <!-- Masajes texto e imagen -->
+  <section class="no-modal">
     <h2>4. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
     <ul>
@@ -170,8 +171,8 @@
     <img class="explanation-img" src="https://cdn.pixabay.com/photo/2017/02/04/23/02/massage-2037549_1280.jpg" alt="Masaje relajante embarazo" />
   </section>
 
-  <!-- Música relajante con video modal -->
-  <section data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">
+  <!-- Música relajante video modal -->
+  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04">
     <h2>5. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
@@ -186,7 +187,7 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeBtn">&times;</span>
-      <video id="videoPlayer" controls></video>
+      <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -210,35 +211,33 @@
 
     // Modal video
     const modal = document.getElementById("modal");
-    const videoPlayer = document.getElementById("videoPlayer");
+    const videoFrame = document.getElementById("videoFrame");
     const closeBtn = document.getElementById("closeBtn");
 
     document.querySelectorAll("section[data-video]").forEach(section => {
       section.addEventListener("click", () => {
         const videoUrl = section.getAttribute("data-video");
-        videoPlayer.src = videoUrl;
-        videoPlayer.play();
+        videoFrame.src = videoUrl + "?autoplay=1&rel=0";
         modal.style.display = "block";
       });
     });
 
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
-      videoPlayer.pause();
-      videoPlayer.src = "";
+      videoFrame.src = "";
     });
 
     window.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.style.display = "none";
-        videoPlayer.pause();
-        videoPlayer.src = "";
+        videoFrame.src = "";
       }
     });
   </script>
 
 </body>
 </html>
+
 
 
 
