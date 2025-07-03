@@ -552,31 +552,6 @@
       startBreathing();
     });
 
-    // Música ambiental
-    const musicPlayer = document.createElement("audio");
-    musicPlayer.src = "https://cdn.pixabay.com/download/audio/2022/03/23/audio_5d9c271da9.mp3?filename=soft-piano-10820.mp3";
-    musicPlayer.loop = true;
-    musicPlayer.volume = 0.3;
-
-    const musicToggle = document.getElementById("music-toggle");
-    const volumeControl = document.getElementById("volume-control");
-
-    musicToggle.addEventListener("click", () => {
-      if (musicPlayer.paused) {
-        musicPlayer.play();
-        musicToggle.innerHTML = "&#10074;&#10074;"; // Pausa
-        musicToggle.title = "Pausar música";
-      } else {
-        musicPlayer.pause();
-        musicToggle.innerHTML = "&#9658;"; // Play
-        musicToggle.title = "Reproducir música";
-      }
-    });
-
-    volumeControl.addEventListener("input", () => {
-      musicPlayer.volume = volumeControl.value;
-    });
-
     // Chatbot simple
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbot = document.getElementById("chatbot");
