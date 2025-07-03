@@ -39,6 +39,11 @@
       padding: 18px 25px;
       box-shadow: 0 0 10px rgba(214, 102, 140, 0.3);
       margin-bottom: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    section:hover {
+      background-color: #f9d1e1;
     }
     h2 {
       color: #c8336e;
@@ -66,6 +71,47 @@
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(214, 102, 140, 0.4);
     }
+    /* Modal styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      padding-top: 60px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.7); 
+    }
+    .modal-content {
+      margin: auto;
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 800px;
+      box-shadow: 0 0 25px rgba(200, 0, 100, 0.5);
+      position: relative;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 10px;
+    }
+    .close-btn {
+      color: #c8336e;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .close-btn:hover {
+      color: #a02456;
+    }
   </style>
 </head>
 <body>
@@ -76,27 +122,27 @@
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
 
-  <section>
+  <section data-video="https://www.youtube.com/embed/oJ6y8NKYuBo">
     <h2>1. Respiración profunda</h2>
     <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente.</p>
   </section>
 
-  <section>
+  <section data-video="https://www.youtube.com/embed/k1o9pRQRzjY">
     <h2>2. Meditación guiada</h2>
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
-  <section>
+  <section data-video="https://www.youtube.com/embed/hBXS9ylrdQE">
     <h2>3. Yoga prenatal</h2>
     <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
   </section>
 
-  <section>
+  <section data-video="https://www.youtube.com/embed/dIEh8LtBumw">
     <h2>4. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo.</p>
   </section>
 
-  <section>
+  <section data-video="https://www.youtube.com/embed/XLJpHdW2LrY">
     <h2>5. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
@@ -107,9 +153,18 @@
     <div id="codigoQR"></div>
   </div>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <!-- Librería QRCode.js -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
   <script>
+    // Generar QR
     function generarQR() {
       const qrDiv = document.getElementById("codigoQR");
       qrDiv.innerHTML = "";
@@ -123,9 +178,35 @@
         correctLevel: QRCode.CorrectLevel.H
       });
     }
+
+    // Modal video
+    const modal = document.getElementById("modal");
+    const videoFrame = document.getElementById("videoFrame");
+    const closeBtn = document.getElementById("closeBtn");
+
+    document.querySelectorAll("section[data-video]").forEach(section => {
+      section.addEventListener("click", () => {
+        const videoUrl = section.getAttribute("data-video");
+        videoFrame.src = videoUrl + "?autoplay=1&rel=0";
+        modal.style.display = "block";
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+      videoFrame.src = "";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        videoFrame.src = "";
+      }
+    });
   </script>
 
 </body>
 </html>
+
 
 
