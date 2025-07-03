@@ -187,14 +187,14 @@
       background: #f9d1e1;
       border: 6px solid white;
       box-shadow: 0 0 12px rgba(214, 51, 108, 0.8);
-      animation: breath-pulse 4s ease-in-out infinite;
+      transition: transform 4s ease-in-out;
       transform-origin: center center;
     }
     #breath-instruction {
       font-weight: bold;
       font-size: 18px;
       margin-top: 12px;
-      height: 24px;
+      height: 28px;
     }
     #breath-start-btn, #breath-stop-btn {
       background-color: white;
@@ -212,10 +212,6 @@
     }
     #breath-start-btn:hover, #breath-stop-btn:hover {
       background-color: #f9d1e1;
-    }
-    @keyframes breath-pulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(214, 51, 108, 0.8); }
-      50% { transform: scale(1.3); box-shadow: 0 0 24px rgba(214, 51, 108, 1); }
     }
 
     /* Chatbot */
@@ -318,7 +314,7 @@
       background-color: #b32456;
     }
 
-    /* NUEVA SECCIÓN: métodos de relajación parto */
+    /* NUEVA SECCIÓN: métodos de relajación parto sin imágenes, textos más desarrollados */
     #relax-parto {
       background: #ffe6f0;
       border-radius: 15px;
@@ -346,43 +342,8 @@
     #relax-parto p {
       font-size: 1rem;
       line-height: 1.5;
-      margin-bottom: 12px;
-    }
-    #relax-parto img.method-img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 12px;
-      margin: 10px 0 20px 0;
-      box-shadow: 0 4px 14px rgba(214, 51, 108, 0.3);
-      display: block;
-    }
-    #relax-parto .method-block {
-      margin-bottom: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 18px;
-    }
-    #relax-parto .method-text {
-      flex: 1 1 55%;
-    }
-    #relax-parto .method-img-container {
-      flex: 1 1 40%;
-      text-align: center;
-    }
-    /* Responsive */
-    @media (max-width: 650px) {
-      #relax-parto .method-block {
-        flex-direction: column;
-      }
-      #relax-parto .method-img-container,
-      #relax-parto .method-text {
-        flex: 1 1 100%;
-      }
-      #relax-parto img.method-img {
-        max-width: 100%;
-        margin: 12px auto 24px auto;
-      }
+      margin-bottom: 20px;
+      text-align: justify;
     }
   </style>
 </head>
@@ -477,49 +438,21 @@
 
   <div id="chatbot-toggle" title="Abrir chat">💬</div>
 
-  <!-- NUEVA SECCIÓN: Métodos de relajación durante el parto -->
+  <!-- NUEVA SECCIÓN: Métodos de relajación durante el parto sin imágenes -->
   <section id="relax-parto" style="opacity: 1; animation-delay: 2s;">
     <h2>Métodos de Relajación Durante el Parto</h2>
 
-    <div class="method-block">
-      <div class="method-text">
-        <h3>Relajación muscular progresiva</h3>
-        <p>Consiste en tensar y relajar distintos grupos musculares para aliviar la tensión acumulada.</p>
-      </div>
-      <div class="method-img-container">
-        <img src="https://i.imgur.com/6hQFTmk.jpg" alt="Relajación muscular progresiva" class="method-img" />
-      </div>
-    </div>
+    <h3>Relajación muscular progresiva</h3>
+    <p>Esta técnica consiste en tensar y luego relajar grupos específicos de músculos de forma consciente, permitiendo aliviar la tensión acumulada en el cuerpo. Durante el parto, puede ayudar a manejar el dolor y la ansiedad, facilitando un estado de calma y control. Es recomendable practicarla en momentos previos para familiarizarse con la sensación.</p>
 
-    <div class="method-block">
-      <div class="method-text">
-        <h3>Visualización guiada</h3>
-        <p>Imagina un lugar tranquilo y seguro para ayudarte a mantener la calma y manejar el dolor.</p>
-      </div>
-      <div class="method-img-container">
-        <img src="https://i.imgur.com/rUoZZ38.jpg" alt="Visualización guiada" class="method-img" />
-      </div>
-    </div>
+    <h3>Visualización guiada</h3>
+    <p>La visualización guiada implica imaginar escenarios o lugares tranquilos y seguros, lo cual puede ser una poderosa herramienta para centrar la mente y reducir el estrés durante las contracciones. Esta práctica ayuda a desviar la atención del dolor y fortalecer una actitud positiva frente al proceso del parto.</p>
 
-    <div class="method-block">
-      <div class="method-text">
-        <h3>Masajes durante el parto</h3>
-        <p>Un masaje suave en la espalda, hombros o pies puede reducir la ansiedad y mejorar la experiencia.</p>
-      </div>
-      <div class="method-img-container">
-        <img src="https://i.imgur.com/oo0JZX0.jpg" alt="Masajes durante el parto" class="method-img" />
-      </div>
-    </div>
+    <h3>Masajes durante el parto</h3>
+    <p>Los masajes suaves y focalizados en áreas como la espalda baja, los hombros o los pies pueden aliviar tensiones musculares y disminuir la percepción del dolor. Además, el contacto físico genera una sensación de seguridad y apoyo emocional, fundamentales para un parto más confortable.</p>
 
-    <div class="method-block">
-      <div class="method-text">
-        <h3>Respiración controlada</h3>
-        <p>Aprender técnicas respiratorias específicas para mantener el ritmo y evitar el agotamiento.</p>
-      </div>
-      <div class="method-img-container">
-        <img src="https://i.imgur.com/1rJIT3j.jpg" alt="Respiración controlada en parto" class="method-img" />
-      </div>
-    </div>
+    <h3>Respiración controlada</h3>
+    <p>Las técnicas de respiración controlada, que incluyen inspiraciones y exhalaciones pausadas, ayudan a mantener un ritmo constante durante las contracciones, evitando el agotamiento. Respirar adecuadamente incrementa el oxígeno disponible para la madre y el bebé, facilitando el proceso de parto y promoviendo la relajación.</p>
 
   </section>
 
@@ -562,54 +495,61 @@
       qrContainer.appendChild(img);
     }
 
-    // Temporizador respiración guiada
+    // Temporizador respiración guiada con tiempos exactos y animación suave
     const breathCircle = document.getElementById("breath-circle");
     const breathInstruction = document.getElementById("breath-instruction");
     const startBtn = document.getElementById("breath-start-btn");
     const stopBtn = document.getElementById("breath-stop-btn");
 
-    let breathInterval = null;
-    let step = 0;
-
-    const instructions = [
-      { text: "Inhala profundamente", duration: 4000 },
-      { text: "Mantén el aire", duration: 4000 },
-      { text: "Exhala lentamente", duration: 6000 },
-      { text: "Mantén los pulmones vacíos", duration: 4000 }
+    const breathSteps = [
+      { text: "Inhala profundamente", duration: 4000, scale: 1.3 },
+      { text: "Mantén el aire", duration: 4000, scale: 1.3 },
+      { text: "Exhala lentamente", duration: 6000, scale: 0.7 },
+      { text: "Mantén los pulmones vacíos", duration: 4000, scale: 0.7 },
     ];
 
+    let breathTimeout = null;
+    let breathIndex = 0;
+    let running = false;
+
+    function breathCycle() {
+      if (!running) return;
+
+      const step = breathSteps[breathIndex];
+      breathInstruction.textContent = step.text;
+
+      // Animar círculo según la fase (inhala y mantiene expandido, exhala y mantiene contraído)
+      breathCircle.style.transition = `transform ${step.duration}ms ease-in-out`;
+      breathCircle.style.transform = `scale(${step.scale})`;
+
+      breathTimeout = setTimeout(() => {
+        breathIndex = (breathIndex + 1) % breathSteps.length;
+        breathCycle();
+      }, step.duration);
+    }
+
     function startBreathing() {
-      if (breathInterval) return;
-      step = 0;
-      breathInstruction.textContent = instructions[step].text;
-      breathCircle.style.animation = "breath-pulse 4s ease-in-out infinite";
+      if (running) return;
+      running = true;
+      breathIndex = 0;
       startBtn.disabled = true;
       stopBtn.disabled = false;
-
-      breathInterval = setInterval(() => {
-        step = (step + 1) % instructions.length;
-        breathInstruction.textContent = instructions[step].text;
-      }, instructions[step].duration);
-
-      // To sync the timer interval with variable durations
-      // we use recursive timeouts instead of fixed setInterval, but to keep it simple:
-      // We'll clear and restart the interval with the next duration at each step:
-      function cycle() {
-        breathInstruction.textContent = instructions[step].text;
-        breathInterval = setTimeout(() => {
-          step = (step + 1) % instructions.length;
-          cycle();
-        }, instructions[step].duration);
-      }
-      cycle();
+      breathInstruction.textContent = breathSteps[breathIndex].text;
+      breathCircle.style.transform = `scale(${breathSteps[breathIndex].scale})`;
+      breathCircle.style.transition = `transform ${breathSteps[breathIndex].duration}ms ease-in-out`;
+      breathTimeout = setTimeout(() => {
+        breathIndex = (breathIndex + 1) % breathSteps.length;
+        breathCycle();
+      }, breathSteps[breathIndex].duration);
     }
 
     function stopBreathing() {
-      if (!breathInterval) return;
-      clearTimeout(breathInterval);
-      breathInterval = null;
+      if (!running) return;
+      running = false;
+      clearTimeout(breathTimeout);
       breathInstruction.textContent = 'Pulsa "Iniciar" para comenzar';
-      breathCircle.style.animation = "none";
+      breathCircle.style.transition = "transform 0.5s ease";
+      breathCircle.style.transform = "scale(1)";
       startBtn.disabled = false;
       stopBtn.disabled = true;
     }
@@ -694,11 +634,10 @@
         enviarMensaje();
       }
     });
-
   </script>
-
 </body>
 </html>
+
 
 
 
