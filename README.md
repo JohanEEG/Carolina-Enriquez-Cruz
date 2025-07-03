@@ -615,25 +615,116 @@
       // Respuesta aleatoria si no coincide con nada
       return respuestasGenericas[Math.floor(Math.random() * respuestasGenericas.length)];
     }
+// Nuevas respuestas con varias posibles preguntas (frases, sinónimos, preguntas comunes)
+const respuestasAvanzadas = [
+  {
+    preguntas: [
+      "hola", "buenos días", "buenas tardes", "buenas noches", "qué tal", "buen día"
+    ],
+    respuestas: [
+      "¡Hola! ¿Cómo puedo ayudarte con técnicas de relajación para el embarazo o parto?",
+      "¡Hola! Estoy aquí para apoyarte con métodos de relajación durante el embarazo y parto."
+    ]
+  },
+  {
+    preguntas: [
+      "respiración", "respirar", "técnica de respiración", "cómo respirar", "respirar durante parto"
+    ],
+    respuestas: [
+      "La respiración controlada es fundamental. Puedes inhalar por la nariz contando hasta 4, mantener el aire y exhalar lentamente por la boca contando hasta 6.",
+      "Para relajarte, prueba la respiración abdominal profunda: inhala lento, mantén y exhala despacio. Eso ayuda a reducir el estrés y controlar el dolor."
+    ]
+  },
+  {
+    preguntas: [
+      "masaje", "masajes", "dolor", "dolor de espalda", "aliviar dolor"
+    ],
+    respuestas: [
+      "Los masajes suaves en la espalda baja y hombros pueden aliviar tensiones. Recuerda evitar presionar el abdomen y consultar con un especialista si tienes dudas.",
+      "Un masaje relajante puede mejorar la circulación y reducir la tensión muscular, especialmente en la zona lumbar durante el embarazo."
+    ]
+  },
+  {
+    preguntas: [
+      "yoga", "yoga prenatal", "ejercicio", "movimiento"
+    ],
+    respuestas: [
+      "El yoga prenatal mejora la postura, la flexibilidad y reduce molestias. Existen muchas rutinas suaves para embarazadas que puedes seguir.",
+      "Practicar yoga durante el embarazo ayuda a preparar el cuerpo para el parto y promueve la relajación."
+    ]
+  },
+  {
+    preguntas: [
+      "parto", "dolor parto", "cómo manejar dolor parto", "relajación parto"
+    ],
+    respuestas: [
+      "Durante el parto, técnicas como la respiración controlada, visualización y cambio de postura pueden ayudarte a manejar el dolor y mantener la calma.",
+      "Mantener la mente enfocada y usar apoyo emocional durante el parto puede facilitar mucho el proceso y reducir el estrés."
+    ]
+  },
+  {
+    preguntas: [
+      "gracias", "muchas gracias", "te agradezco"
+    ],
+    respuestas: [
+      "¡De nada! Estoy aquí para ayudarte siempre que lo necesites.",
+      "Con gusto, me alegra poder apoyarte."
+    ]
+  },
+  {
+    preguntas: [
+      "adiós", "hasta luego", "nos vemos", "chao"
+    ],
+    respuestas: [
+      "¡Hasta luego! Te deseo mucha calma y bienestar.",
+      "Nos vemos pronto, cuídate mucho."
+    ]
+  }
+];
 
-    function enviarMensaje() {
-      const texto = chatbotInput.value.trim();
-      if (texto === "") return;
-      appendMessage(texto, "user");
-      chatbotInput.value = "";
-      setTimeout(() => {
-        const respuesta = obtenerRespuesta(texto);
-        appendMessage(respuesta, "bot");
-      }, 700);
-    }
-
-    chatbotSendBtn.addEventListener("click", enviarMensaje);
-
-    chatbotInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        enviarMensaje();
+// Función para buscar coincidencia y responder
+function responderAvanzado(input) {
+  const texto = input.toLowerCase();
+  for (const grupo of respuestasAvanzadas) {
+    for (const pregunta of grupo.preguntas) {
+      if (texto.includes(pregunta)) {
+        // Elegir una respuesta aleatoria de las posibles
+        const resps = grupo.respuestas;
+        return resps[Math.floor(Math.random() * resps.length)];
       }
-    });
+    }
+  }
+  return "Disculpa, no entendí muy bien. Puedes preguntarme sobre respiración, masaje, yoga o parto.";
+}
+
+// Funciones para mostrar mensajes (igual que antes)
+function agregarMensaje(text, tipo) {
+  const div = document.createElement("div");
+  div.classList.add("chatbot-message", tipo);
+  div.textContent = text;
+  chatbotMessages.appendChild(div);
+  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function enviarMensaje() {
+  const textoUsuario = chatbotInput.value.trim();
+  if (!textoUsuario) return;
+  agregarMensaje(textoUsuario, "user");
+  chatbotInput.value = "";
+  setTimeout(() => {
+    const respuestaBot = responderAvanzado(textoUsuario);
+    agregarMensaje(respuestaBot, "bot");
+  }, 500);
+}
+
+// Evento para enviar mensaje con botón o tecla Enter
+chatbotSendBtn.addEventListener("click", enviarMensaje);
+chatbotInput.addEventListener("keypress", e => {
+  if (e.key === "Enter") {
+    enviarMensaje();
+  }
+});
+
   </script>
 </body>
 </html>
