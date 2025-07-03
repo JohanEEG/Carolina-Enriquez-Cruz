@@ -449,7 +449,7 @@
       });
     }
 
-    // Temporizador respiración guiada
+    // Temporizador respiración guiada con botón iniciar y detener
     const breathInstruction = document.getElementById("breath-instruction");
     const breathCircle = document.getElementById("breath-circle");
     const breathStartBtn = document.getElementById("breath-start-btn");
@@ -460,7 +460,8 @@
     const maxCycles = 6;
 
     function startBreathing() {
-      breathStartBtn.disabled = true;
+      breathStartBtn.textContent = "Detener";
+      breathStartBtn.disabled = false;
       cycleCount = 0;
       phase = 0;
       breathInstruction.textContent = "Inhala profundo...";
@@ -494,16 +495,21 @@
 
     function stopBreathing() {
       clearInterval(breathInterval);
-      breathInstruction.textContent = "¡Bien hecho! Puedes iniciar otra vez.";
+      breathInstruction.textContent = "Pulsa \"Iniciar\" para comenzar";
       breathCircle.style.transform = "scale(1)";
+      breathStartBtn.textContent = "Iniciar";
       breathStartBtn.disabled = false;
     }
 
     breathStartBtn.addEventListener("click", () => {
-      startBreathing();
+      if (breathStartBtn.textContent === "Iniciar") {
+        startBreathing();
+      } else {
+        stopBreathing();
+      }
     });
 
-    // Chatbot simple
+    // Chatbot básico con más frases reconocidas
     const chatbotToggle = document.getElementById("chatbot-toggle");
     const chatbot = document.getElementById("chatbot");
     const chatbotClose = document.getElementById("chatbot-close");
@@ -522,64 +528,59 @@
       chatbotToggle.style.display = "block";
     });
 
-    function addMessage(text, sender) {
-      const message = document.createElement("div");
-      message.classList.add("chatbot-message", sender);
-      message.textContent = text;
-      chatbotMessages.appendChild(message);
+    function addChatMessage(text, sender) {
+      const msg = document.createElement("div");
+      msg.classList.add("chatbot-message", sender);
+      msg.textContent = text;
+      chatbotMessages.appendChild(msg);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
-    function botResponse(input) {
-      input = input.toLowerCase().trim();
-
-      if (!input) return "Por favor, escribe algo para que pueda ayudarte.";
+    function responder(input) {
+      const text = input.toLowerCase().trim();
+      if (!text) return "Por favor, escribe algo para que pueda ayudarte.";
 
       const respuestas = [
-        { keywords: ["respiración", "respirar"], response: "La respiración profunda ayuda a calmar la mente. Intenta inhalar contando hasta 4, retener por 4 y exhalar por 6." },
-        { keywords: ["meditación", "meditar"], response: "La meditación guiada es excelente para reducir estrés y conectarte contigo misma." },
-        { keywords: ["yoga"], response: "El yoga prenatal es muy beneficioso para el cuerpo y la mente durante el embarazo." },
-        { keywords: ["masaje", "masajes"], response: "Los masajes suaves alivian tensiones musculares, siempre evitando el abdomen." },
-        { keywords: ["música", "relajante"], response: "Escuchar música suave puede crear un ambiente muy armonioso para ti y tu bebé." },
-        { keywords: ["hola", "hola!", "buenos días", "buenas tardes"], response: "¡Hola! ¿En qué puedo ayudarte sobre métodos de relajación durante el embarazo?" },
-        { keywords: ["gracias", "muchas gracias"], response: "¡De nada! Estoy aquí para ayudarte cuando quieras." },
-        { keywords: ["adiós", "hasta luego"], response: "¡Hasta luego! Cuida mucho de ti y tu bebé." }
+        { keys: ["hola", "buenas", "buen día", "buenas tardes", "buenas noches"], resp: "¡Hola! ¿En qué puedo ayudarte hoy?" },
+        { keys: ["respiración", "respira", "respirar"], resp: "Puedes probar la respiración profunda: inhala contando hasta 4, retén 4 segundos y exhala contando hasta 6." },
+        { keys: ["masaje", "masajes"], resp: "Los masajes suaves en espalda y piernas ayudan mucho a relajarte durante el embarazo." },
+        { keys: ["meditación", "meditar"], resp: "La meditación guiada es ideal para calmar la mente y conectarte con tu bebé." },
+        { keys: ["yoga", "prenatal"], resp: "El yoga prenatal fortalece tu cuerpo y reduce molestias físicas." },
+        { keys: ["música", "relajante"], resp: "Escuchar música suave puede crear un ambiente tranquilo para ti y tu bebé." },
+        { keys: ["gracias", "muchas gracias", "gracias!"], resp: "¡De nada! Estoy aquí para ayudarte cuando lo necesites." },
+        { keys: ["adiós", "hasta luego", "nos vemos"], resp: "¡Cuídate mucho! Estoy aquí si necesitas más consejos." }
       ];
 
       for (const item of respuestas) {
-        if (item.keywords.some(k => input.includes(k))) {
-          return item.response;
+        if (item.keys.some(k => text.includes(k))) {
+          return item.resp;
         }
       }
-      return "Lo siento, no entendí tu pregunta. ¿Puedes intentar con otras palabras?";
+
+      return "Lo siento, no entiendo eso. Puedes preguntarme sobre respiración, masajes, meditación, yoga o música relajante.";
     }
 
     function enviarMensaje() {
-      const texto = chatbotInput.value.trim();
-      if (!texto) return;
-      addMessage(texto, "user");
+      const textoUsuario = chatbotInput.value.trim();
+      if (!textoUsuario) return;
+      addChatMessage(textoUsuario, "user");
       chatbotInput.value = "";
+      const respuestaBot = responder(textoUsuario);
       setTimeout(() => {
-        const respuesta = botResponse(texto);
-        addMessage(respuesta, "bot");
-      }, 700);
+        addChatMessage(respuestaBot, "bot");
+      }, 600);
     }
 
     chatbotSendBtn.addEventListener("click", enviarMensaje);
-    chatbotInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") enviarMensaje();
+    chatbotInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        enviarMensaje();
+      }
     });
-
-    // Animaciones fade in al cargar
-    window.onload = () => {
-      document.querySelectorAll("header, section, #qr").forEach((el, i) => {
-        el.style.animationDelay = `${i * 0.3}s`;
-        el.style.opacity = "1";
-      });
-    };
   </script>
 </body>
 </html>
+
 
 
 
