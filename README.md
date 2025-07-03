@@ -144,7 +144,7 @@
       <li>Exhala lentamente por la boca contando hasta 6.</li>
       <li>Repite este ciclo varias veces hasta sentir relajación.</li>
     </ul>
-    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2018/07/07/10/23/breathing-3521230_960_720.png" alt="Ejemplo respiración profunda" />
+    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2018/07/07/10/23/breathing-3521230_1280.png" alt="Ejemplo respiración profunda" />
   </section>
 
   <!-- Meditación guiada con video modal -->
@@ -170,7 +170,7 @@
       <li>Utiliza aceites naturales o cremas para facilitar el masaje.</li>
       <li>Consulta siempre con un especialista si tienes dudas.</li>
     </ul>
-    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2017/02/04/23/02/massage-2037549_960_720.jpg" alt="Masaje relajante embarazo" />
+    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2017/02/04/23/02/massage-2037549_1280.jpg" alt="Masaje relajante embarazo" />
   </section>
 
   <!-- Música relajante con video modal -->
@@ -239,6 +239,7 @@
 
 </body>
 </html>
+
 
 
 
