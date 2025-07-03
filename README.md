@@ -392,13 +392,6 @@
     </div>
   </div>
 
-  <!-- Música ambiental -->
-  <div id="music-player">
-    <button id="music-toggle" title="Reproducir música">&#9658;</button>
-    <label for="volume-control">Volumen</label>
-    <input type="range" id="volume-control" min="0" max="1" step="0.05" value="0.3" />
-  </div>
-
   <!-- Chatbot -->
   <div id="chatbot">
     <div id="chatbot-header">
