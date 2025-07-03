@@ -498,7 +498,7 @@
     });
 
     // Música ambiental
-    const audio = new Audio("https://cdn.pixabay.com/download/audio/2021/10/28/audio_4902e4a2ee.mp3?filename=soft-relaxing-music-10567.mp3");
+    const audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
     audio.loop = true;
     audio.volume = 0.3;
 
