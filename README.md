@@ -71,7 +71,7 @@
 <body>
 
   <header>
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Mamá relajada" />
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Mujer embarazada" />
     <h1>Métodos de Relajación Durante el Embarazo</h1>
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
@@ -127,4 +127,5 @@
 
 </body>
 </html>
+
 
