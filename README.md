@@ -478,180 +478,144 @@
   <div id="chatbot-toggle" title="Abrir chat">💬</div>
 
   <!-- NUEVA SECCIÓN: Métodos de relajación durante el parto -->
-  <section id="relax-parto" style="opacity: 1; animation-delay: 2.1s;">
+  <section id="relax-parto" style="opacity: 1; animation-delay: 2s;">
     <h2>Métodos de Relajación Durante el Parto</h2>
-    
+
     <div class="method-block">
       <div class="method-text">
-        <h3>1. Respiración controlada</h3>
-        <p>Respirar lenta y profundamente ayuda a oxigenar mejor tu cuerpo y a mantener la calma. Se recomienda usar técnicas como la respiración abdominal o respiración rítmica, inspirando por la nariz y exhalando por la boca de forma pausada.</p>
+        <h3>Relajación muscular progresiva</h3>
+        <p>Consiste en tensar y relajar distintos grupos musculares para aliviar la tensión acumulada.</p>
       </div>
       <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/5QrDsY1.png" alt="Mujer realizando respiración controlada" />
+        <img src="https://i.imgur.com/6hQFTmk.jpg" alt="Relajación muscular progresiva" class="method-img" />
       </div>
     </div>
 
     <div class="method-block">
       <div class="method-text">
-        <h3>2. Visualización y enfoque mental</h3>
-        <p>Imagina un lugar tranquilo y seguro o visualiza cómo cada contracción acerca a tu bebé a tus brazos. Este enfoque mental positivo puede disminuir la sensación de dolor y mejorar tu bienestar emocional.</p>
+        <h3>Visualización guiada</h3>
+        <p>Imagina un lugar tranquilo y seguro para ayudarte a mantener la calma y manejar el dolor.</p>
       </div>
       <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/jPztpYu.png" alt="Mujer en meditación visualización" />
+        <img src="https://i.imgur.com/rUoZZ38.jpg" alt="Visualización guiada" class="method-img" />
       </div>
     </div>
 
     <div class="method-block">
       <div class="method-text">
-        <h3>3. Masajes y presión</h3>
-        <p>El masaje suave en la zona lumbar o presión firme en puntos específicos puede aliviar tensiones y el dolor durante las contracciones. Tu acompañante o personal de salud puede ayudarte con estas técnicas.</p>
+        <h3>Masajes durante el parto</h3>
+        <p>Un masaje suave en la espalda, hombros o pies puede reducir la ansiedad y mejorar la experiencia.</p>
       </div>
       <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/GIURnsW.png" alt="Masaje lumbar para aliviar dolor" />
+        <img src="https://i.imgur.com/oo0JZX0.jpg" alt="Masajes durante el parto" class="method-img" />
       </div>
     </div>
 
     <div class="method-block">
       <div class="method-text">
-        <h3>4. Movimiento y postura</h3>
-        <p>Adoptar posiciones cómodas, como caminar, balancearte en una pelota de parto, o cambiar de postura regularmente puede facilitar el avance del trabajo de parto y disminuir molestias.</p>
+        <h3>Respiración controlada</h3>
+        <p>Aprender técnicas respiratorias específicas para mantener el ritmo y evitar el agotamiento.</p>
       </div>
       <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/VDZvTfH.png" alt="Mujer embarazada usando pelota de parto" />
+        <img src="https://i.imgur.com/1rJIT3j.jpg" alt="Respiración controlada en parto" class="method-img" />
       </div>
     </div>
 
-    <div class="method-block">
-      <div class="method-text">
-        <h3>5. Técnicas de relajación muscular progresiva</h3>
-        <p>Consiste en tensar y luego relajar grupos musculares específicos para liberar la tensión corporal. Esta técnica ayuda a disminuir la rigidez y promover una sensación general de calma.</p>
-      </div>
-      <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/ky9dP7I.png" alt="Ejemplo relajación muscular progresiva" />
-      </div>
-    </div>
-
-    <div class="method-block">
-      <div class="method-text">
-        <h3>6. Uso de música y ambiente calmado</h3>
-        <p>Escuchar música suave o sonidos de la naturaleza crea un ambiente relajante que puede ayudar a reducir el estrés y el dolor.</p>
-      </div>
-      <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/Z1TxZWb.png" alt="Ambiente relajante con música" />
-      </div>
-    </div>
-
-    <div class="method-block">
-      <div class="method-text">
-        <h3>7. Apoyo emocional y presencia de un acompañante</h3>
-        <p>Sentirse acompañada y apoyada durante el parto es clave para mantener la tranquilidad. La presencia de una persona de confianza brinda seguridad y ayuda a manejar el proceso con mayor confianza.</p>
-      </div>
-      <div class="method-img-container">
-        <img class="method-img" src="https://i.imgur.com/7FyV3qn.png" alt="Apoyo emocional durante el parto" />
-      </div>
-    </div>
-    
-    <p style="text-align:center; font-style: italic; margin-top: 30px;">
-      Recuerda que cada mujer es única. Consulta siempre con tu médico o partera para adaptar estas técnicas a tus necesidades y condiciones personales.
-    </p>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script>
-    // Modal video
+    // Manejo del modal para videos
+    const sections = document.querySelectorAll("section[data-video]");
     const modal = document.getElementById("modal");
     const videoFrame = document.getElementById("videoFrame");
     const closeBtn = document.getElementById("closeBtn");
-    const sections = document.querySelectorAll("section[data-video]");
-    sections.forEach(section => {
-      section.addEventListener("click", () => {
-        const videoUrl = section.getAttribute("data-video");
-        videoFrame.src = videoUrl + "?autoplay=1";
+
+    sections.forEach(sec => {
+      sec.addEventListener("click", () => {
+        videoFrame.src = sec.getAttribute("data-video") + "?autoplay=1";
         modal.style.display = "block";
       });
     });
+
     closeBtn.addEventListener("click", () => {
-      videoFrame.src = "";
       modal.style.display = "none";
+      videoFrame.src = "";
     });
-    window.addEventListener("click", e => {
+
+    window.addEventListener("click", (e) => {
       if (e.target == modal) {
-        videoFrame.src = "";
         modal.style.display = "none";
+        videoFrame.src = "";
       }
     });
 
-    // QR code generation
+    // QR Code generator
     function generarQR() {
-      const url = window.location.href;
       const qrContainer = document.getElementById("codigoQR");
       qrContainer.innerHTML = "";
-      QRCode.toCanvas(url, { width: 160 }, (error, canvas) => {
-        if (error) {
-          alert("Error generando código QR");
-          return;
-        }
-        qrContainer.appendChild(canvas);
-      });
+      const url = encodeURIComponent(window.location.href);
+      const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${url}`;
+      const img = document.createElement("img");
+      img.src = qrApi;
+      img.alt = "Código QR para compartir la página";
+      img.style.borderRadius = "12px";
+      qrContainer.appendChild(img);
     }
 
     // Temporizador respiración guiada
-    const breathInstruction = document.getElementById("breath-instruction");
     const breathCircle = document.getElementById("breath-circle");
-    const breathStartBtn = document.getElementById("breath-start-btn");
-    const breathStopBtn = document.getElementById("breath-stop-btn");
+    const breathInstruction = document.getElementById("breath-instruction");
+    const startBtn = document.getElementById("breath-start-btn");
+    const stopBtn = document.getElementById("breath-stop-btn");
 
     let breathInterval = null;
-    let breathStep = 0;
-    const breathSteps = [
-      { text: "Inhala lentamente", duration: 4000 },
+    let step = 0;
+
+    const instructions = [
+      { text: "Inhala profundamente", duration: 4000 },
       { text: "Mantén el aire", duration: 4000 },
       { text: "Exhala lentamente", duration: 6000 },
       { text: "Mantén los pulmones vacíos", duration: 4000 }
     ];
 
-    function animateBreath(step) {
-      if (step === 0) {
-        breathCircle.style.transform = "scale(1.3)";
-        breathCircle.style.boxShadow = "0 0 24px rgba(214, 51, 108, 1)";
-      } else if (step === 2) {
-        breathCircle.style.transform = "scale(1)";
-        breathCircle.style.boxShadow = "0 0 12px rgba(214, 51, 108, 0.8)";
-      }
-    }
+    function startBreathing() {
+      if (breathInterval) return;
+      step = 0;
+      breathInstruction.textContent = instructions[step].text;
+      breathCircle.style.animation = "breath-pulse 4s ease-in-out infinite";
+      startBtn.disabled = true;
+      stopBtn.disabled = false;
 
-    function startBreathTimer() {
-      if (breathInterval) return; // Ya está corriendo
-
-      breathStep = 0;
-      breathInstruction.textContent = breathSteps[breathStep].text;
-      animateBreath(breathStep);
       breathInterval = setInterval(() => {
-        breathStep = (breathStep + 1) % breathSteps.length;
-        breathInstruction.textContent = breathSteps[breathStep].text;
-        animateBreath(breathStep);
-      }, breathSteps[breathStep].duration);
+        step = (step + 1) % instructions.length;
+        breathInstruction.textContent = instructions[step].text;
+      }, instructions[step].duration);
 
-      breathStartBtn.disabled = true;
-      breathStopBtn.disabled = false;
+      // To sync the timer interval with variable durations
+      // we use recursive timeouts instead of fixed setInterval, but to keep it simple:
+      // We'll clear and restart the interval with the next duration at each step:
+      function cycle() {
+        breathInstruction.textContent = instructions[step].text;
+        breathInterval = setTimeout(() => {
+          step = (step + 1) % instructions.length;
+          cycle();
+        }, instructions[step].duration);
+      }
+      cycle();
     }
 
-    function stopBreathTimer() {
-      clearInterval(breathInterval);
+    function stopBreathing() {
+      if (!breathInterval) return;
+      clearTimeout(breathInterval);
       breathInterval = null;
-      breathInstruction.textContent = "Pulsa \"Iniciar\" para comenzar";
-      breathCircle.style.transform = "scale(1)";
-      breathCircle.style.boxShadow = "0 0 12px rgba(214, 51, 108, 0.8)";
-      breathStartBtn.disabled = false;
-      breathStopBtn.disabled = true;
+      breathInstruction.textContent = 'Pulsa "Iniciar" para comenzar';
+      breathCircle.style.animation = "none";
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
     }
 
-    breathStartBtn.addEventListener("click", () => {
-      startBreathTimer();
-    });
-    breathStopBtn.addEventListener("click", () => {
-      stopBreathTimer();
-    });
+    startBtn.addEventListener("click", startBreathing);
+    stopBtn.addEventListener("click", stopBreathing);
 
     // Chatbot funcionalidad
     const chatbotToggle = document.getElementById("chatbot-toggle");
@@ -666,61 +630,76 @@
       chatbotToggle.style.display = "none";
       chatbotInput.focus();
     });
+
     chatbotClose.addEventListener("click", () => {
       chatbot.style.display = "none";
       chatbotToggle.style.display = "block";
     });
 
-    // Respuestas básicas
-    const respuestas = {
-      "hola": "¡Hola! ¿En qué puedo ayudarte con la relajación durante el embarazo o parto?",
-      "respiración": "La respiración profunda y controlada es clave para relajarte. Puedes probar la técnica de inhalar contando hasta 4, mantener, y exhalar lentamente.",
-      "masaje": "Los masajes suaves en la espalda baja y hombros ayudan a aliviar tensiones. Recuerda siempre ser cuidadosa y consultar con un especialista.",
-      "yoga": "El yoga prenatal mejora la postura y reduce molestias. Existen muchas rutinas suaves y específicas para embarazadas.",
-      "parto": "Durante el parto, técnicas como la respiración controlada, visualización y movimiento pueden ayudarte a manejar el dolor y mantener la calma.",
-      "gracias": "¡De nada! Estoy aquí para ayudarte cuando quieras.",
-      "adiós": "¡Hasta luego! Te deseo mucha calma y bienestar."
-    };
-
-    function responderUsuario(input) {
-      const texto = input.toLowerCase().trim();
-      // Buscar palabra clave en respuestas
-      for (const clave in respuestas) {
-        if (texto.includes(clave)) {
-          return respuestas[clave];
-        }
-      }
-      return "Lo siento, no entendí eso. Puedes preguntarme sobre respiración, masaje, yoga o parto.";
-    }
-
-    function agregarMensaje(text, tipo) {
+    function appendMessage(msg, sender) {
       const div = document.createElement("div");
-      div.classList.add("chatbot-message", tipo);
-      div.textContent = text;
+      div.classList.add("chatbot-message", sender);
+      div.textContent = msg;
       chatbotMessages.appendChild(div);
       chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
+    const respuestasGenericas = [
+      "Gracias por tu mensaje, estoy aquí para ayudarte.",
+      "Eso suena interesante, ¿puedes contarme más?",
+      "Recuerda respirar profundamente para relajarte.",
+      "¿Quieres que te sugiera un método de relajación?",
+      "Estoy aprendiendo, ¿qué técnica te gustaría probar hoy?",
+      "No olvides que la calma es tu aliada durante el embarazo.",
+      "Si tienes dudas específicas, dime y trataré de ayudarte.",
+    ];
+
+    function obtenerRespuesta(userText) {
+      const text = userText.toLowerCase();
+
+      if (text.includes("respiración")) {
+        return "La respiración profunda puede ayudarte a calmarte. ¿Quieres que te guíe con un temporizador?";
+      }
+      if (text.includes("masaje")) {
+        return "Los masajes suaves alivian tensiones. Recuerda evitar el abdomen directamente.";
+      }
+      if (text.includes("meditación")) {
+        return "La meditación guiada puede ser muy efectiva para tu bienestar emocional.";
+      }
+      if (text.includes("yoga")) {
+        return "El yoga prenatal fortalece tu cuerpo y mente. ¿Quieres un video para empezar?";
+      }
+      if (text.includes("parto")) {
+        return "Durante el parto, técnicas como la respiración controlada y masajes son de gran ayuda.";
+      }
+      // Respuesta aleatoria si no coincide con nada
+      return respuestasGenericas[Math.floor(Math.random() * respuestasGenericas.length)];
+    }
+
     function enviarMensaje() {
-      const textoUsuario = chatbotInput.value.trim();
-      if (!textoUsuario) return;
-      agregarMensaje(textoUsuario, "user");
+      const texto = chatbotInput.value.trim();
+      if (texto === "") return;
+      appendMessage(texto, "user");
       chatbotInput.value = "";
       setTimeout(() => {
-        const respuestaBot = responderUsuario(textoUsuario);
-        agregarMensaje(respuestaBot, "bot");
-      }, 600);
+        const respuesta = obtenerRespuesta(texto);
+        appendMessage(respuesta, "bot");
+      }, 700);
     }
 
     chatbotSendBtn.addEventListener("click", enviarMensaje);
-    chatbotInput.addEventListener("keypress", e => {
+
+    chatbotInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         enviarMensaje();
       }
     });
+
   </script>
+
 </body>
 </html>
+
 
 
 
