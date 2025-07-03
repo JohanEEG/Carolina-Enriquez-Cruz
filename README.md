@@ -112,6 +112,17 @@
     .close-btn:hover {
       color: #a02456;
     }
+    /* Para las imágenes dentro de sección */
+    .explanation-img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 12px;
+      box-shadow: 0 2px 8px rgba(200, 0, 100, 0.2);
+    }
+    /* Para texto sin modal, eliminamos cursor pointer */
+    section.no-modal {
+      cursor: default;
+    }
   </style>
 </head>
 <body>
@@ -122,26 +133,47 @@
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
 
-  <section data-video="https://www.youtube.com/embed/1ZYbU82GVz4">
+  <!-- Respiración Profunda con texto e imagen, sin modal -->
+  <section class="no-modal">
     <h2>1. Respiración profunda</h2>
-    <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente.</p>
+    <p>Controlar la respiración ayuda a reducir el estrés, mejorar el sueño y calmar la mente. Prueba esta técnica:</p>
+    <ul>
+      <li>Siéntate o acuéstate cómodamente.</li>
+      <li>Inhala lenta y profundamente por la nariz contando hasta 4.</li>
+      <li>Retén el aire durante 4 segundos.</li>
+      <li>Exhala lentamente por la boca contando hasta 6.</li>
+      <li>Repite este ciclo varias veces hasta sentir relajación.</li>
+    </ul>
+    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2018/07/07/10/23/breathing-3521230_960_720.png" alt="Ejemplo respiración profunda" />
   </section>
 
+  <!-- Meditación guiada con video modal -->
   <section data-video="https://www.youtube.com/embed/inpok4MKVLM">
     <h2>2. Meditación guiada</h2>
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
+  <!-- Yoga prenatal con video modal -->
   <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE">
     <h2>3. Yoga prenatal</h2>
     <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
   </section>
 
-  <section data-video="https://www.youtube.com/embed/3EvoT1D_YkI">
+  <!-- Masajes con texto e imagen, sin modal -->
+  <section class="no-modal">
     <h2>4. Masajes</h2>
-    <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo.</p>
+    <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
+    <ul>
+      <li>Usa movimientos lentos y presiones suaves.</li>
+      <li>Evita presionar el abdomen directamente.</li>
+      <li>Concéntrate en la espalda baja, hombros y piernas.</li>
+      <li>Utiliza aceites naturales o cremas para facilitar el masaje.</li>
+      <li>Consulta siempre con un especialista si tienes dudas.</li>
+    </ul>
+    <img class="explanation-img" src="https://cdn.pixabay.com/photo/2017/02/04/23/02/massage-2037549_960_720.jpg" alt="Masaje relajante embarazo" />
   </section>
 
+  <!-- Música relajante con video modal -->
   <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04">
     <h2>5. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
@@ -207,6 +239,7 @@
 
 </body>
 </html>
+
 
 
 
