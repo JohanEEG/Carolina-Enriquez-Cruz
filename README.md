@@ -429,7 +429,7 @@
 <body>
 
   <header>
-    <h1>Métodos de Relajación Durante el Embarazo</h1>
+    <h1>Técnicas de Respiración en la Labor de Parto</h1>
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
 
