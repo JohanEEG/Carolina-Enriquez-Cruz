@@ -355,7 +355,7 @@
 
   <!-- Masajes texto e imagen -->
   <section class="no-modal" style="cursor: default; opacity: 1; animation-delay: 0.9s;">
-    <h2>4. Masajes</h2>
+    <h2>3. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
     <ul>
       <li>Usa movimientos lentos y presiones suaves.</li>
@@ -369,7 +369,7 @@
 
   <!-- Música relajante video modal -->
   <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04" style="opacity: 1; animation-delay: 1.2s;">
-    <h2>5. Escuchar música relajante</h2>
+    <h2>4. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
 
@@ -456,16 +456,21 @@
       }
     });
 
-    <script>
+<script>
   // QR Code generator (usa Google Chart API)
   function generarQR() {
     const qrContainer = document.getElementById("codigoQR");
-    const fixedUrl = "https://johaneeg.github.io/Carolina-Enriquez-Cruz/";
+    const fixedUrl = "https://johaneeg.github.io/relajacion-embarazo/";
     const encodedUrl = encodeURIComponent(fixedUrl);
     const qrUrl = `https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=${encodedUrl}`;
     qrContainer.innerHTML = `<img src="${qrUrl}" alt="Código QR" style="margin-top: 15px; border-radius: 12px;" />`;
-  }
+
+    // Ejecutar automáticamente al cargar la página
+  window.onload = function () {
+    generarQR();
+  };
 </script>
+
 
 
   <script type="module">
