@@ -136,83 +136,83 @@
       cursor: default;
     }
     #foro {
-  background: #fff0f6;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 0 12px rgba(214, 102, 140, 0.3);
-  margin-bottom: 60px;
-}
-#foro form, .question, .answer-form {
-  background: #ffe6f0;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(214, 102, 140, 0.2);
-  margin-bottom: 20px;
-}
-#foro input[type="text"], #foro textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1.5px solid #d6336c;
-  font-size: 14px;
-  box-sizing: border-box;
-  resize: vertical;
-  font-family: inherit;
-}
-#foro button {
-  background-color: #d6336c;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 12px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  margin-top: 10px;
-}
-#foro button:hover {
-  background-color: #b32456;
-}
-.question-title {
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 6px;
-  color: #a02a55;
-}
-.question-text {
-  font-size: 15px;
-  margin-bottom: 8px;
-  white-space: pre-wrap;
-}
-.answers {
-  margin-top: 12px;
-  padding-left: 12px;
-  border-left: 3px solid #d6336c;
-}
-.answer {
-  background: #f9d1e1;
-  border-radius: 10px;
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  color: #4a2c3a;
-  white-space: pre-wrap;
-}
-.toggle-answers-btn {
-  background: transparent;
-  border: none;
-  color: #b32456;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  margin-top: 6px;
-  user-select: none;
-  font-size: 14px;
-}
-.toggle-answers-btn:hover {
-  text-decoration: underline;
-}
+      background: #fff0f6;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(214, 102, 140, 0.3);
+      margin-bottom: 60px;
+    }
+    #foro form, .question, .answer-form {
+      background: #ffe6f0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(214, 102, 140, 0.2);
+      margin-bottom: 20px;
+    }
+    #foro input[type="text"], #foro textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #d6336c;
+      font-size: 14px;
+      box-sizing: border-box;
+      resize: vertical;
+      font-family: inherit;
+    }
+    #foro button {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      margin-top: 10px;
+    }
+    #foro button:hover {
+      background-color: #b32456;
+    }
+    .question-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #a02a55;
+    }
+    .question-text {
+      font-size: 15px;
+      margin-bottom: 8px;
+      white-space: pre-wrap;
+    }
+    .answers {
+      margin-top: 12px;
+      padding-left: 12px;
+      border-left: 3px solid #d6336c;
+    }
+    .answer {
+      background: #f9d1e1;
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #4a2c3a;
+      white-space: pre-wrap;
+    }
+    .toggle-answers-btn {
+      background: transparent;
+      border: none;
+      color: #b32456;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 6px;
+      user-select: none;
+      font-size: 14px;
+    }
+    .toggle-answers-btn:hover {
+      text-decoration: underline;
+    }
 
     /* Animations */
     @keyframes fadeInDown {
@@ -429,7 +429,6 @@
 <body>
 
   <header>
-    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Mujer embarazada" />
     <h1>Métodos de Relajación Durante el Embarazo</h1>
     <p class="subtitle">Cuida tu bienestar físico y emocional con cariño y calma.</p>
   </header>
@@ -454,15 +453,9 @@
     <p>Escuchar meditaciones grabadas puede ayudarte a mantener la calma y enfocarte en tu bienestar.</p>
   </section>
 
-  <!-- Yoga prenatal video modal -->
-  <section data-video="https://www.youtube.com/embed/v7AYKMP6rOE" style="opacity: 1; animation-delay: 0.6s;">
-    <h2>3. Yoga prenatal</h2>
-    <p>Movimientos suaves diseñados especialmente para embarazadas que mejoran la postura y reducen dolores.</p>
-  </section>
-
   <!-- Masajes texto e imagen -->
-  <section class="no-modal" style="cursor: default; opacity: 1; animation-delay: 0.9s;">
-    <h2>4. Masajes</h2>
+  <section class="no-modal" style="cursor: default; opacity: 1; animation-delay: 0.6s;">
+    <h2>3. Masajes</h2>
     <p>Un masaje suave alivia tensiones musculares, mejora la circulación y relaja el cuerpo. Aquí unos tips básicos:</p>
     <ul>
       <li>Usa movimientos lentos y presiones suaves.</li>
@@ -475,20 +468,20 @@
   </section>
 
   <!-- Música relajante video modal -->
-  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04" style="opacity: 1; animation-delay: 1.2s;">
-    <h2>5. Escuchar música relajante</h2>
+  <section data-video="https://www.youtube.com/embed/2OEL4P1Rz04" style="opacity: 1; animation-delay: 0.9s;">
+    <h2>4. Escuchar música relajante</h2>
     <p>La música suave puede inducir tranquilidad y generar un ambiente armonioso para ti y tu bebé.</p>
   </section>
 
   <!-- Temporizador respiración guiada -->
-  <div id="breath-timer" style="opacity: 1; animation-delay: 1.5s;">
+  <div id="breath-timer" style="opacity: 1; animation-delay: 1.2s;">
     <div id="breath-instruction">Pulsa "Iniciar" para comenzar</div>
     <div id="breath-circle"></div>
     <button id="breath-start-btn">Iniciar</button>
     <button id="breath-stop-btn" disabled>Detener</button>
   </div>
 
-  <div id="qr" style="opacity: 1; animation-delay: 1.8s;">
+  <div id="qr" style="opacity: 1; animation-delay: 1.5s;">
     <h2>Comparte esta información</h2>
     <button onclick="generarQR()">Generar Código QR</button>
     <div id="codigoQR"></div>
@@ -497,7 +490,7 @@
   <!-- Modal -->
   <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close-btn" id="closeBtn">&times;</span>
+      <span class="close-btn" id="closeBtn">×</span>
       <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
@@ -506,7 +499,7 @@
   <div id="chatbot">
     <div id="chatbot-header">
       Asistente de Relajación
-      <span id="chatbot-close" title="Cerrar">&times;</span>
+      <span id="chatbot-close" title="Cerrar">×</span>
     </div>
     <div id="chatbot-messages"></div>
     <div id="chatbot-input-container">
@@ -518,7 +511,7 @@
   <div id="chatbot-toggle" title="Abrir chat">💬</div>
 
   <!-- NUEVA SECCIÓN: Métodos de relajación durante el parto sin imágenes -->
-  <section id="relax-parto" style="opacity: 1; animation-delay: 2s;">
+  <section id="relax-parto" style="opacity: 1; animation-delay: 1.8s;">
     <h2>Métodos de Relajación Durante el Parto</h2>
 
     <h3>Relajación muscular progresiva</h3>
@@ -532,23 +525,24 @@
 
     <h3>Respiración controlada</h3>
     <p>Las técnicas de respiración controlada, que incluyen inspiraciones y exhalaciones pausadas, ayudan a mantener un ritmo constante durante las contracciones, evitando el agotamiento. Respirar adecuadamente incrementa el oxígeno disponible para la madre y el bebé, facilitando el proceso de parto y promoviendo la relajación.</p>
+  </section>
+
   <section id="foro" style="margin-top: 40px;">
-  <h2>Foro de Preguntas y Respuestas</h2>
+    <h2>Foro de Preguntas y Respuestas</h2>
 
-  <form id="question-form">
-    <label for="question-title-input">Título de la pregunta</label>
-    <input type="text" id="question-title-input" placeholder="Escribe el título de tu pregunta" required maxlength="100" />
+    <form id="question-form">
+      <label for="question-title-input">Título de la pregunta</label>
+      <input type="text" id="question-title-input" placeholder="Escribe el título de tu pregunta" required maxlength="100" />
 
-    <label for="question-text-input" style="margin-top: 12px;">Detalle / descripción</label>
-    <textarea id="question-text-input" placeholder="Describe tu pregunta con más detalle" required maxlength="500"></textarea>
+      <label for="question-text-input" style="margin-top: 12px;">Detalle / descripción</label>
+      <textarea id="question-text-input" placeholder="Describe tu pregunta con más detalle" required maxlength="500"></textarea>
 
-    <button type="submit">Publicar Pregunta</button>
-  </form>
+      <button type="submit">Publicar Pregunta</button>
+    </form>
 
-  <div id="questions-container">
-    <!-- Preguntas se mostrarán aquí -->
-  </div>
-
+    <div id="questions-container">
+      <!-- Preguntas se mostrarán aquí -->
+    </div>
   </section>
 
   <script>
@@ -651,123 +645,123 @@
 
     startBtn.addEventListener("click", startBreathing);
     stopBtn.addEventListener("click", stopBreathing);
+
     let foroData = JSON.parse(localStorage.getItem('foroPreguntas')) || [];
-const questionForm = document.getElementById('question-form');
-const questionsContainer = document.getElementById('questions-container');
+    const questionForm = document.getElementById('question-form');
+    const questionsContainer = document.getElementById('questions-container');
 
-function guardarDatos() {
-  localStorage.setItem('foroPreguntas', JSON.stringify(foroData));
-}
-function crearPreguntaElement(pregunta) {
-  const container = document.createElement('div');
-  container.classList.add('question');
-  const title = document.createElement('div');
-  title.classList.add('question-title');
-  title.textContent = pregunta.title;
-  container.appendChild(title);
+    function guardarDatos() {
+      localStorage.setItem('foroPreguntas', JSON.stringify(foroData));
+    }
+    function crearPreguntaElement(pregunta) {
+      const container = document.createElement('div');
+      container.classList.add('question');
+      const title = document.createElement('div');
+      title.classList.add('question-title');
+      title.textContent = pregunta.title;
+      container.appendChild(title);
 
-  const text = document.createElement('div');
-  text.classList.add('question-text');
-  text.textContent = pregunta.text;
-  container.appendChild(text);
+      const text = document.createElement('div');
+      text.classList.add('question-text');
+      text.textContent = pregunta.text;
+      container.appendChild(text);
 
-  const toggleBtn = document.createElement('button');
-  toggleBtn.classList.add('toggle-answers-btn');
-  toggleBtn.textContent = `Mostrar respuestas (${pregunta.answers.length})`;
-  container.appendChild(toggleBtn);
-
-  const answersDiv = document.createElement('div');
-  answersDiv.classList.add('answers');
-  answersDiv.style.display = 'none';
-
-  pregunta.answers.forEach((respuesta) => {
-    const ans = document.createElement('div');
-    ans.classList.add('answer');
-    ans.textContent = respuesta;
-    answersDiv.appendChild(ans);
-  });
-  container.appendChild(answersDiv);
-
-  const answerForm = document.createElement('form');
-  answerForm.classList.add('answer-form');
-  answerForm.style.display = 'none';
-
-  const answerTextarea = document.createElement('textarea');
-  answerTextarea.setAttribute('placeholder', 'Escribe tu respuesta aquí');
-  answerTextarea.required = true;
-  answerTextarea.maxLength = 300;
-  answerForm.appendChild(answerTextarea);
-
-  const answerSubmitBtn = document.createElement('button');
-  answerSubmitBtn.type = 'submit';
-  answerSubmitBtn.textContent = 'Responder';
-  answerForm.appendChild(answerSubmitBtn);
-
-  container.appendChild(answerForm);
-
-  toggleBtn.addEventListener('click', () => {
-    if (answersDiv.style.display === 'none') {
-      answersDiv.style.display = 'block';
-      answerForm.style.display = 'block';
-      toggleBtn.textContent = `Ocultar respuestas (${pregunta.answers.length})`;
-    } else {
-      answersDiv.style.display = 'none';
-      answerForm.style.display = 'none';
+      const toggleBtn = document.createElement('button');
+      toggleBtn.classList.add('toggle-answers-btn');
       toggleBtn.textContent = `Mostrar respuestas (${pregunta.answers.length})`;
-    }
-  });
+      container.appendChild(toggleBtn);
 
-  answerForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const nuevaRespuesta = answerTextarea.value.trim();
-    if (!nuevaRespuesta) return;
-    const index = foroData.findIndex(q => q.id === pregunta.id);
-    if (index >= 0) {
-      foroData[index].answers.push(nuevaRespuesta);
+      const answersDiv = document.createElement('div');
+      answersDiv.classList.add('answers');
+      answersDiv.style.display = 'none';
+
+      pregunta.answers.forEach((respuesta) => {
+        const ans = document.createElement('div');
+        ans.classList.add('answer');
+        ans.textContent = respuesta;
+        answersDiv.appendChild(ans);
+      });
+      container.appendChild(answersDiv);
+
+      const answerForm = document.createElement('form');
+      answerForm.classList.add('answer-form');
+      answerForm.style.display = 'none';
+
+      const answerTextarea = document.createElement('textarea');
+      answerTextarea.setAttribute('placeholder', 'Escribe tu respuesta aquí');
+      answerTextarea.required = true;
+      answerTextarea.maxLength = 300;
+      answerForm.appendChild(answerTextarea);
+
+      const answerSubmitBtn = document.createElement('button');
+      answerSubmitBtn.type = 'submit';
+      answerSubmitBtn.textContent = 'Responder';
+      answerForm.appendChild(answerSubmitBtn);
+
+      container.appendChild(answerForm);
+
+      toggleBtn.addEventListener('click', () => {
+        if (answersDiv.style.display === 'none') {
+          answersDiv.style.display = 'block';
+          answerForm.style.display = 'block';
+          toggleBtn.textContent = `Ocultar respuestas (${pregunta.answers.length})`;
+        } else {
+          answersDiv.style.display = 'none';
+          answerForm.style.display = 'none';
+          toggleBtn.textContent = `Mostrar respuestas (${pregunta.answers.length})`;
+        }
+      });
+
+      answerForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const nuevaRespuesta = answerTextarea.value.trim();
+        if (!nuevaRespuesta) return;
+        const index = foroData.findIndex(q => q.id === pregunta.id);
+        if (index >= 0) {
+          foroData[index].answers.push(nuevaRespuesta);
+          guardarDatos();
+          const ans = document.createElement('div');
+          ans.classList.add('answer');
+          ans.textContent = nuevaRespuesta;
+          answersDiv.appendChild(ans);
+          answerTextarea.value = '';
+          toggleBtn.textContent = `Ocultar respuestas (${foroData[index].answers.length})`;
+        }
+      });
+
+      return container;
+    }
+
+    function renderizarPreguntas() {
+      questionsContainer.innerHTML = '';
+      if (foroData.length === 0) {
+        questionsContainer.textContent = 'No hay preguntas todavía. Sé el primero en publicar una.';
+        return;
+      }
+      foroData.forEach(pregunta => {
+        const preguntaElem = crearPreguntaElement(pregunta);
+        questionsContainer.appendChild(preguntaElem);
+      });
+    }
+
+    questionForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const titulo = document.getElementById('question-title-input').value.trim();
+      const texto = document.getElementById('question-text-input').value.trim();
+      if (!titulo || !texto) return;
+      const nuevaPregunta = {
+        id: Date.now(),
+        title: titulo,
+        text: texto,
+        answers: []
+      };
+      foroData.unshift(nuevaPregunta);
       guardarDatos();
-      const ans = document.createElement('div');
-      ans.classList.add('answer');
-      ans.textContent = nuevaRespuesta;
-      answersDiv.appendChild(ans);
-      answerTextarea.value = '';
-      toggleBtn.textContent = `Ocultar respuestas (${foroData[index].answers.length})`;
-    }
-  });
+      renderizarPreguntas();
+      questionForm.reset();
+    });
 
-  return container;
-}
-
-function renderizarPreguntas() {
-  questionsContainer.innerHTML = '';
-  if (foroData.length === 0) {
-    questionsContainer.textContent = 'No hay preguntas todavía. Sé el primero en publicar una.';
-    return;
-  }
-  foroData.forEach(pregunta => {
-    const preguntaElem = crearPreguntaElement(pregunta);
-    questionsContainer.appendChild(preguntaElem);
-  });
-}
-
-questionForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const titulo = document.getElementById('question-title-input').value.trim();
-  const texto = document.getElementById('question-text-input').value.trim();
-  if (!titulo || !texto) return;
-  const nuevaPregunta = {
-    id: Date.now(),
-    title: titulo,
-    text: texto,
-    answers: []
-  };
-  foroData.unshift(nuevaPregunta);
-  guardarDatos();
-  renderizarPreguntas();
-  questionForm.reset();
-});
-
-renderizarPreguntas();
-
+    renderizarPreguntas();
 
     // Chatbot funcionalidad
     const chatbotToggle = document.getElementById("chatbot-toggle");
@@ -827,116 +821,116 @@ renderizarPreguntas();
       // Respuesta aleatoria si no coincide con nada
       return respuestasGenericas[Math.floor(Math.random() * respuestasGenericas.length)];
     }
-// Nuevas respuestas con varias posibles preguntas (frases, sinónimos, preguntas comunes)
-const respuestasAvanzadas = [
-  {
-    preguntas: [
-      "hola", "buenos días", "buenas tardes", "buenas noches", "qué tal", "buen día"
-    ],
-    respuestas: [
-      "¡Hola! ¿Cómo puedo ayudarte con técnicas de relajación para el embarazo o parto?",
-      "¡Hola! Estoy aquí para apoyarte con métodos de relajación durante el embarazo y parto."
-    ]
-  },
-  {
-    preguntas: [
-      "respiración", "respirar", "técnica de respiración", "cómo respirar", "respirar durante parto"
-    ],
-    respuestas: [
-      "La respiración controlada es fundamental. Puedes inhalar por la nariz contando hasta 4, mantener el aire y exhalar lentamente por la boca contando hasta 6.",
-      "Para relajarte, prueba la respiración abdominal profunda: inhala lento, mantén y exhala despacio. Eso ayuda a reducir el estrés y controlar el dolor."
-    ]
-  },
-  {
-    preguntas: [
-      "masaje", "masajes", "dolor", "dolor de espalda", "aliviar dolor"
-    ],
-    respuestas: [
-      "Los masajes suaves en la espalda baja y hombros pueden aliviar tensiones. Recuerda evitar presionar el abdomen y consultar con un especialista si tienes dudas.",
-      "Un masaje relajante puede mejorar la circulación y reducir la tensión muscular, especialmente en la zona lumbar durante el embarazo."
-    ]
-  },
-  {
-    preguntas: [
-      "yoga", "yoga prenatal", "ejercicio", "movimiento"
-    ],
-    respuestas: [
-      "El yoga prenatal mejora la postura, la flexibilidad y reduce molestias. Existen muchas rutinas suaves para embarazadas que puedes seguir.",
-      "Practicar yoga durante el embarazo ayuda a preparar el cuerpo para el parto y promueve la relajación."
-    ]
-  },
-  {
-    preguntas: [
-      "parto", "dolor parto", "cómo manejar dolor parto", "relajación parto"
-    ],
-    respuestas: [
-      "Durante el parto, técnicas como la respiración controlada, visualización y cambio de postura pueden ayudarte a manejar el dolor y mantener la calma.",
-      "Mantener la mente enfocada y usar apoyo emocional durante el parto puede facilitar mucho el proceso y reducir el estrés."
-    ]
-  },
-  {
-    preguntas: [
-      "gracias", "muchas gracias", "te agradezco"
-    ],
-    respuestas: [
-      "¡De nada! Estoy aquí para ayudarte siempre que lo necesites.",
-      "Con gusto, me alegra poder apoyarte."
-    ]
-  },
-  {
-    preguntas: [
-      "adiós", "hasta luego", "nos vemos", "chao"
-    ],
-    respuestas: [
-      "¡Hasta luego! Te deseo mucha calma y bienestar.",
-      "Nos vemos pronto, cuídate mucho."
-    ]
-  }
-];
 
-// Función para buscar coincidencia y responder
-function responderAvanzado(input) {
-  const texto = input.toLowerCase();
-  for (const grupo of respuestasAvanzadas) {
-    for (const pregunta of grupo.preguntas) {
-      if (texto.includes(pregunta)) {
-        // Elegir una respuesta aleatoria de las posibles
-        const resps = grupo.respuestas;
-        return resps[Math.floor(Math.random() * resps.length)];
+    // Nuevas respuestas con varias posibles preguntas (frases, sinónimos, preguntas comunes)
+    const respuestasAvanzadas = [
+      {
+        preguntas: [
+          "hola", "buenos días", "buenas tardes", "buenas noches", "qué tal", "buen día"
+        ],
+        respuestas: [
+          "¡Hola! ¿Cómo puedo ayudarte con técnicas de relajación para el embarazo o parto?",
+          "¡Hola! Estoy aquí para apoyarte con métodos de relajación durante el embarazo y parto."
+        ]
+      },
+      {
+        preguntas: [
+          "respiración", "respirar", "técnica de respiración", "cómo respirar", "respirar durante parto"
+        ],
+        respuestas: [
+          "La respiración controlada es fundamental. Puedes inhalar por la nariz contando hasta 4, mantener el aire y exhalar lentamente por la boca contando hasta 6.",
+          "Para relajarte, prueba la respiración abdominal profunda: inhala lento, mantén y exhala despacio. Eso ayuda a reducir el estrés y controlar el dolor."
+        ]
+      },
+      {
+        preguntas: [
+          "masaje", "masajes", "dolor", "dolor de espalda", "aliviar dolor"
+        ],
+        respuestas: [
+          "Los masajes suaves en la espalda baja y hombros pueden aliviar tensiones. Recuerda evitar presionar el abdomen y consultar con un especialista si tienes dudas.",
+          "Un masaje relajante puede mejorar la circulación y reducir la tensión muscular, especialmente en la zona lumbar durante el embarazo."
+        ]
+      },
+      {
+        preguntas: [
+          "yoga", "yoga prenatal", "ejercicio", "movimiento"
+        ],
+        respuestas: [
+          "El yoga prenatal mejora la postura, la flexibilidad y reduce molestias. Existen muchas rutinas suaves para embarazadas que puedes seguir.",
+          "Practicar yoga durante el embarazo ayuda a preparar el cuerpo para el parto y promueve la relajación."
+        ]
+      },
+      {
+        preguntas: [
+          "parto", "dolor parto", "cómo manejar dolor parto", "relajación parto"
+        ],
+        respuestas: [
+          "Durante el parto, técnicas como la respiración controlada, visualización y cambio de postura pueden ayudarte a manejar el dolor y mantener la calma.",
+          "Mantener la mente enfocada y usar apoyo emocional durante el parto puede facilitar mucho el proceso y reducir el estrés."
+        ]
+      },
+      {
+        preguntas: [
+          "gracias", "muchas gracias", "te agradezco"
+        ],
+        respuestas: [
+          "¡De nada! Estoy aquí para ayudarte siempre que lo necesites.",
+          "Con gusto, me alegra poder apoyarte."
+        ]
+      },
+      {
+        preguntas: [
+          "adiós", "hasta luego", "nos vemos", "chao"
+        ],
+        respuestas: [
+          "¡Hasta luego! Te deseo mucha calma y bienestar.",
+          "Nos vemos pronto, cuídate mucho."
+        ]
       }
+    ];
+
+    // Función para buscar coincidencia y responder
+    function responderAvanzado(input) {
+      const texto = input.toLowerCase();
+      for (const grupo of respuestasAvanzadas) {
+        for (const pregunta of grupo.preguntas) {
+          if (texto.includes(pregunta)) {
+            // Elegir una respuesta aleatoria de las posibles
+            const resps = grupo.respuestas;
+            return resps[Math.floor(Math.random() * resps.length)];
+          }
+        }
+      }
+      return "Disculpa, no entendí muy bien. Puedes preguntarme sobre respiración, masaje, yoga o parto.";
     }
-  }
-  return "Disculpa, no entendí muy bien. Puedes preguntarme sobre respiración, masaje, yoga o parto.";
-}
 
-// Funciones para mostrar mensajes (igual que antes)
-function agregarMensaje(text, tipo) {
-  const div = document.createElement("div");
-  div.classList.add("chatbot-message", tipo);
-  div.textContent = text;
-  chatbotMessages.appendChild(div);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-}
+    // Funciones para mostrar mensajes (igual que antes)
+    function agregarMensaje(text, tipo) {
+      const div = document.createElement("div");
+      div.classList.add("chatbot-message", tipo);
+      div.textContent = text;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
 
-function enviarMensaje() {
-  const textoUsuario = chatbotInput.value.trim();
-  if (!textoUsuario) return;
-  agregarMensaje(textoUsuario, "user");
-  chatbotInput.value = "";
-  setTimeout(() => {
-    const respuestaBot = responderAvanzado(textoUsuario);
-    agregarMensaje(respuestaBot, "bot");
-  }, 500);
-}
+    function enviarMensaje() {
+      const textoUsuario = chatbotInput.value.trim();
+      if (!textoUsuario) return;
+      agregarMensaje(textoUsuario, "user");
+      chatbotInput.value = "";
+      setTimeout(() => {
+        const respuestaBot = responderAvanzado(textoUsuario);
+        agregarMensaje(respuestaBot, "bot");
+      }, 500);
+    }
 
-// Evento para enviar mensaje con botón o tecla Enter
-chatbotSendBtn.addEventListener("click", enviarMensaje);
-chatbotInput.addEventListener("keypress", e => {
-  if (e.key === "Enter") {
-    enviarMensaje();
-  }
-});
-
+    // Evento para enviar mensaje con botón o tecla Enter
+    chatbotSendBtn.addEventListener("click", enviarMensaje);
+    chatbotInput.addEventListener("keypress", e => {
+      if (e.key === "Enter") {
+        enviarMensaje();
+      }
+    });
   </script>
 </body>
 </html>
