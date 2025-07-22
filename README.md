@@ -456,15 +456,17 @@
       }
     });
 
-    // QR Code generator (usa Google Chart API)
-    function generarQR() {
-      const url = window.location.href;
-      const qrContainer = document.getElementById("codigoQR");
-      const encodedUrl = encodeURIComponent(url);
-      const qrUrl = `https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=${encodedUrl}`;
-      qrContainer.innerHTML = `<img src="${qrUrl}" alt="Código QR" style="margin-top: 15px; border-radius: 12px;" />`;
-    }
-  </script>
+    <script>
+  // QR Code generator (usa Google Chart API)
+  function generarQR() {
+    const qrContainer = document.getElementById("codigoQR");
+    const fixedUrl = "https://johaneeg.github.io/Carolina-Enriquez-Cruz/";
+    const encodedUrl = encodeURIComponent(fixedUrl);
+    const qrUrl = `https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=${encodedUrl}`;
+    qrContainer.innerHTML = `<img src="${qrUrl}" alt="Código QR" style="margin-top: 15px; border-radius: 12px;" />`;
+  }
+</script>
+
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
