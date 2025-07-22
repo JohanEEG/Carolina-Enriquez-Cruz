@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Técnicas de respiración en la labor de parto</title>
+  <title>Técnicas de Respiración en la Labor de Parto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
