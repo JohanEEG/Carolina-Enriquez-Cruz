@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Métodos de Relajación en el Embarazo y Parto</title>
+  <title>Técnicas de respiración en la labor de parto</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
