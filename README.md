@@ -381,7 +381,7 @@
     <button id="breath-stop-btn" disabled>Detener</button>
   </div>
 
-  <div id="qr" style="opacity: 1; animation-delay: 1.8s;">
+   <div class="seccion" id="qr">
     <h2>Comparte esta información</h2>
     <button onclick="generarQR()">Generar Código QR</button>
     <div id="codigoQR"></div>
@@ -457,19 +457,15 @@
     });
 
 <script>
-  // QR Code generator (usa Google Chart API)
-  function generarQR() {
-    const qrContainer = document.getElementById("codigoQR");
-    const fixedUrl = "https://johaneeg.github.io/relajacion-embarazo/";
-    const encodedUrl = encodeURIComponent(fixedUrl);
-    const qrUrl = `https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=${encodedUrl}`;
-    qrContainer.innerHTML = `<img src="${qrUrl}" alt="Código QR" style="margin-top: 15px; border-radius: 12px;" />`;
-
-    // Ejecutar automáticamente al cargar la página
-  window.onload = function () {
-    generarQR();
-  };
-</script>
+// QR Code generator usando Google Chart API
+    function generarQR() {
+      const qrContainer = document.getElementById("codigoQR");
+      const fixedUrl = "https://johaneeg.github.io/relajacion-embarazo/";
+      const encodedUrl = encodeURIComponent(fixedUrl);
+      const qrUrl = `https://chart.googleapis.com/chart?chs=220x220&cht=qr&chl=${encodedUrl}`;
+      qrContainer.innerHTML = `<img src="${qrUrl}" alt="Código QR" />`;
+    }
+  </script>
 
 
 
