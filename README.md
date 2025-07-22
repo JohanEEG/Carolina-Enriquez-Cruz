@@ -646,6 +646,26 @@ questionForm.addEventListener('submit', e => {
 });
 
 renderizarPreguntas();
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAM0vvTzYT0Mft9AQSZjMnaiUwcZ64p8DY",
+    authDomain: "tecnicas-de-respiracion.firebaseapp.com",
+    projectId: "tecnicas-de-respiracion",
+    storageBucket: "tecnicas-de-respiracion.firebasestorage.app",
+    messagingSenderId: "323190577031",
+    appId: "1:323190577031:web:8ff6d0f431b5ac960f2522",
+    measurementId: "G-FYCH8PE1HG"
+  };
+
+  // Inicializa Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
 
 
     
